@@ -10,6 +10,30 @@ const hamBtn=document.querySelector("#hamIcon");
 var allpages=document.querySelectorAll(".page");
 const menuItemsList=document.querySelector("ul");
 
+// fullscreen and exit full screen buttons
+const btnFS=document.querySelector("#btnFS");
+const btnWS=document.querySelector("#btnWS");
+
+btnFS.addEventListener("click",enterFullscreen);
+btnWS.addEventListener("click",exitFullscreen);
+function enterFullscreen() { //must be called by user generated event
+document.documentElement.requestFullscreen();
+}
+function exitFullscreen() {
+document.exitFullscreen();
+}
+
+// report window size
+const heightOutput = document.querySelector("#height");
+const widthOutput = document.querySelector("#width");
+function reportWindowSize() {
+heightOutput.textContent = window.innerHeight;
+widthOutput.textContent = window.innerWidth;
+}
+reportWindowSize();
+window.addEventListener("resize",reportWindowSize);//when resize, update report
+
+
 //select all subtopic pages
 function hideall(){ //function to hide all pages
 for(let onepage of allpages){ //go through all subtopic pages 
