@@ -78,3 +78,46 @@ hamBtn.innerHTML="Open Menu"; //change button text open menu
 }
 hamBtn.addEventListener("click", toggleMenus);
 
+// timeline 
+document.querySelectorAll('.grid-landmark').forEach(landmark => {
+  const timeline = landmark.querySelector('.timeline');
+  const imgContainer = landmark.querySelector('.timeline-image-container');
+  const imgElement = imgContainer.querySelector('img');
+
+  // when user clicks on a dot
+  timeline.querySelectorAll('.dot').forEach(dot => {
+    dot.addEventListener('click', () => {
+      const imgSrc = dot.getAttribute('data-img');
+      if (imgSrc) {
+        imgElement.src = imgSrc;
+        imgElement.style.display = 'inline-block';
+        imgElement.style.opacity = '1';
+      }
+    });
+
+    // hide image when mouse leaves the dot and timeline
+    dot.addEventListener('mouseleave', () => {
+      // allow clicks inside image container if needed
+      setTimeout(() => {
+        // check if mouse is inside timeline or image container
+        const isInTimeline = timeline.matches(':hover');
+        const isInImage = imgContainer.matches(':hover');
+        if (!isInTimeline && !isInImage) {
+          imgElement.style.opacity = '0';
+          setTimeout(() => { imgElement.style.display = 'none'; }, 300);
+        }
+      }, 100);
+    });
+  });
+
+  // hide image if mouse leaves timeline area completely
+  timeline.addEventListener('mouseleave', () => {
+    setTimeout(() => {
+      if (!timeline.matches(':hover') && !imgContainer.matches(':hover')) {
+        imgElement.style.opacity = '0';
+        setTimeout(() => { imgElement.style.display = 'none'; }, 300);
+      }
+    }, 100);
+  });
+
+});
