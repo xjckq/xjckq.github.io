@@ -23,16 +23,6 @@ function exitFullscreen() {
 document.exitFullscreen();
 }
 
-// report window size
-const heightOutput = document.querySelector("#height");
-const widthOutput = document.querySelector("#width");
-function reportWindowSize() {
-heightOutput.textContent = window.innerHeight;
-widthOutput.textContent = window.innerWidth;
-}
-reportWindowSize();
-window.addEventListener("resize",reportWindowSize);//when resize, update report
-
 
 //select all subtopic pages
 function hideall(){ //function to hide all pages
