@@ -23,6 +23,20 @@ function exitFullscreen() {
 document.exitFullscreen();
 }
 
+// for form elements
+const showFeedbackBtn = document.querySelector("#showFeedback");
+
+showFeedbackBtn.addEventListener("click", function() {
+    const name = document.querySelector("#userName").value || "Anonymous";
+    const landmark = document.querySelector("#landmark").value;
+    const rating = document.querySelector("input[name='stars']:checked")?.value || "No rating";
+    const comment = document.querySelector("#userComment").value;
+    
+    document.querySelector("#result").innerHTML = 
+    `<p><b>${name}</b> visited <b>${landmark}</b></p>
+     <p>Rating: ${rating}/5</p>
+     ${comment ? `<p>Comment: ${comment}</p>` : ""}`;
+});
 
 //select all subtopic pages
 function hideall(){ //function to hide all pages
@@ -55,6 +69,7 @@ page5btn.addEventListener("click", function () {
 show(5);
 });
 hideall();
+
 
 function toggleMenus(){ /*open and close menu*/
 //if menuItemsList dont have the class "menuShow", add it, else remove it
@@ -94,7 +109,10 @@ document.querySelectorAll('.grid-landmark').forEach(landmark => {
         const isInImage = imgContainer.matches(':hover');
         if (!isInTimeline && !isInImage) {
           imgElement.style.opacity = '0';
-          setTimeout(() => { imgElement.style.display = 'none'; }, 300);
+          setTimeout(() => 
+          { 
+            imgElement.style.display = 'none'; 
+          }, 300);
         }
       }, 100);
     });
@@ -105,9 +123,13 @@ document.querySelectorAll('.grid-landmark').forEach(landmark => {
     setTimeout(() => {
       if (!timeline.matches(':hover') && !imgContainer.matches(':hover')) {
         imgElement.style.opacity = '0';
-        setTimeout(() => { imgElement.style.display = 'none'; }, 300);
+        setTimeout(() => { 
+          imgElement.style.display = 'none'; 
+        }, 300);
       }
     }, 100);
   });
 
 });
+
+// need to implement minigame (guess the architectural style)
