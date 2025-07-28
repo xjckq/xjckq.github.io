@@ -76,130 +76,6 @@ article header  {
   background: rgb(0, 0, 0);
 }
 
-
-/* for phone */
-@media screen and (max-width: 800px) {
-  /* hide QR code on mobile */
-  #qrCodeImg {
-    display: none;
-  }
-
-  
-  
-  h1 {
-    font-size: 3em;
-    margin: 0.5em 0;
-    background: rgba(221, 161, 94, 0.4);
-    color: #000000;
-  }
-  
-  h1::after {
-    content: "(mobile)";
-    font-size: 0.5em;
-    display: block;
-  }
-  
-  h2, h3 {
-    color: #3B7A57;
-    font-size: 1.5em;
-    margin: 0.5em 0;
-  }
-  
-  /* menu */
-  #hamIcon {
-    display: block;
-    cursor: pointer;
-    font-size: 2em;
-    padding: 0.5em;
-  }
-  
-  nav ul {
-    display: none;
-    flex-direction: column;
-    gap: 1em;
-    padding: 1em;
-  }
-  
-  nav ul.menuShow {
-    display: flex;
-  }
-  
-  nav ul li {
-    display: block;
-    width: 100%;
-  }
-  
-  /* grid layouts */
-   .grid-landmark {
-    display: flex;
-    flex-direction: column;
-    border: #000000 solid 2px;
-  }
-
-  .grid-landmark-logo {
-    max-width: auto;
-    border-right: none;
-    border-bottom: 1px solid #000000;
-  }
-  
-
-  .grid-item {
-    grid-column: 2/2;
-    grid-row: auto;
-    max-width: auto;  
-  }
-
-  .grid-landmark-content {
-    max-width: auto;
-    padding: 15px;
-  }
-  
-  /* flex layouts */
-  .page-flex {
-    flex-direction: column;
-  }
-  
-  .flex-item {
-    width: 100%;
-    max-width: 300px;
-    margin: 0 auto;
-  }
-  
-  /* timeline */
-  .timeline {
-    flex-direction: column;
-    gap: 50px;
-    align-items: center;
-    padding: 10px;
-  }
-  
-  .timeline-line {
-    display: none;
-  }
-  
-  .timeline-image-container img {
-    max-width: 95%;
-  }
-  
-  .page {
-    width: 100%;
-    flex-direction: column;
-  }
-  
-  /* form */
-  .form-container {
-    width: 95%;
-    margin: 20px auto;
-  }
-  
-  /* game container */
-  .game-container {
-    margin: 1em;
-    padding: 0.5em;
-  }
-  
-}
-
 p {
   font-family: 'Lato Regular', sans-serif;
   margin: 0.5em 0;
@@ -298,21 +174,18 @@ nav ul li{display:inline;}
   grid-template-columns: 50% 50%;
   grid-template-rows: auto;
   border: #000000 solid 2px;
+  
 }
 
 .grid-landmark-logo {
   display: flex;
   grid-column: 1 / 2;
-  border-right: 1px solid #000000;
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;  /* forces to snap to the next snap position/ allow horizontal scrolling */
-  scroll-behavior: smooth; /* smooth scrolling */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   border-radius: 0.5em;
   overflow: hidden;
+  position: relative;
+  align-items: center;
 }
-
-
 
 .grid-landmark-logo img {
   max-width: 100%;
@@ -329,12 +202,56 @@ nav ul li{display:inline;}
   text-align: center;
   flex-direction: column;
   justify-content: center;
-  border: 1px solid #000000;
+  padding: 20px;
 }
 
 .grid-landmark-content li{
   list-style-type: none;
   padding: 0;
+}
+
+/* landmark button and info */
+.landmark-block {
+  margin: 10px;
+}
+
+.landmark-block button {
+  background-color: #000000;
+  color: white;
+  font-size: 1.5em;
+  font-family: 'Playfair Display', serif;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  width: 70%;        
+  height: 50px;  
+  transition: background-color .3s ease, transform .3s ease;
+}
+
+.landmark-block button:hover {
+  background-color: #353535;
+  transform: scale(1.05);
+}
+
+.landmark-info {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: max-height .4s ease, opacity .4s ease, transform .4s ease;
+}
+
+.landmark-info p {
+  margin: 10px;
+}
+
+.landmark-info.show {
+  max-height: 100%; 
+  opacity: 1;
+}
+
+.landmark-info.hide {
+  max-height: 100%;
+  opacity: 0;
 }
 
 /* ===== for architectural styles*/
@@ -361,9 +278,9 @@ nav ul li{display:inline;}
 }
 
 .grid-item img {
-    width: 100%;
-    height: auto;
-    object-fit: fill;
+ width: 100%;
+height: 400px;
+  object-fit:fill;
 }
 
 .style-content {
@@ -400,6 +317,24 @@ nav ul li{display:inline;}
    display: flex;
 }
 
+.block{
+  animation: appear .5s ease;
+  animation-timeline: view();   /* to set thew animation to only happen when the elemnt is visible on the screen*/
+  animation-range: entry 0; /* makes the element happen when it enters viewport and ensures the animation is complete by the time is reaches 40% of the view port */
+}
+
+
+@keyframes appear{
+  from {
+    opacity: 0;
+    transform: translateX(-50px); 
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0px);
+  }
+}
+
 /*CSS for responsive menu*/
 #hamIcon{display:none;}
 @media screen and (max-width:800px){
@@ -409,7 +344,155 @@ nav ul li{display:block;}
 #hamIcon{display:block;}
 /*hide the menu item list*/
 nav ul{display:none;}
+
+
+/* hide QR code on mobile */
+  #qrCodeImg {
+    display: none;
+  }
+  
+  h1 {
+    font-size: 3em;
+    margin: 0.5em 0;
+    background: rgba(221, 161, 94, 0.4);
+    color: #000000;
+  }
+  
+  h1::after {
+    content: "(mobile)";
+    font-size: 0.5em;
+    display: block;
+  }
+  
+  h2, h3 {
+    color: #3B7A57;
+    font-size: 1.5em;
+    margin: 0.5em 0;
+  }
+  
+  /* menu */
+  #hamIcon {
+    display: block;
+    cursor: pointer;
+    font-size: 2em;
+    padding: 0.5em;
+  }
+  
+  nav ul {
+    display: none;
+    flex-direction: column;
+    gap: 1em;
+    padding: 1em;
+  }
+  
+  nav ul.menuShow {
+    display: flex;
+  }
+  
+  nav ul li {
+    display: block;
+    width: 100%;
+  }
+
+  /* grid layouts */
+  /* landmarks */
+  .grid-landmark {
+    grid-template-columns: 100%; 
+    grid-template-rows: auto auto; 
+  }
+  
+  .grid-landmark-logo {
+    grid-column: 1 / 1;
+    border-right: none;
+    border-bottom: 1px solid #000000;
+  }
+  
+  .grid-landmark-content {
+    grid-column: 1 / 1;
+    grid-row: 2 / 2;
+  }
+
+  /* architectural styles */
+    .grid-container {
+    grid-template-columns: 1fr; 
+    grid-template-rows: 1fr;
+  }
+  
+  .grid-item {
+    width: 100%; 
+  }
+
+  /* images */
+ .grid-landmark-logo img,
+  .grid-item img,
+  .grid-cultural-logo img {
+    width: 100%;
+    height: auto;
+  }
+
+  /* cultural */
+   .grid-cultural {
+    grid-template-rows: auto auto; /* two equal rows */
+  }
+  
+  .grid-cultural-logo img {
+    width: 100%; 
+    height: auto;
+  }
+
+  /* flex layouts */
+  .page-flex {
+    flex-direction: column;
+  }
+  
+  .flex-item {
+    width: 100%;
+    max-width: 300px;
+    margin: 0 auto;
+  }
+  
+  /* timeline */
+  .timeline {
+    flex-direction: column;
+    gap: 50px;
+    align-items: center;
+    padding: 10px;
+  }
+  
+  .timeline-line {
+    display: none;
+  }
+  
+  .timeline-image-container img {
+    max-width: 95%;
+  }
+
+  .dot {
+    width: 25px;
+    height: 25px;
+  }
+  
+  .page {
+    width: 100%;
+    flex-direction: column;
+    padding: 10px;
+  }
+  
+  
+  /* form */
+  .form-container {
+    width: 95%;
+    margin: 20px auto;
+  }
+  
+  /* game container */
+  .game-container {
+    margin: 1em;
+    padding: 0.5em;
+  }
 }
+
+
 /*to unhide menu items*/
 .menuShow{display:block;}
 

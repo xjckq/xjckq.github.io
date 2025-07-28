@@ -10,6 +10,22 @@ const hamBtn=document.querySelector("#hamIcon");
 var allpages=document.querySelectorAll(".page");
 const menuItemsList=document.querySelector("ul");
 
+// landmark buttons
+const blocks = document.querySelectorAll(".landmark-block");
+
+blocks.forEach(block => {
+  const button = block.querySelector(".btn-landmark");
+  const info = block.querySelector(".landmark-info");
+
+  // remove show from all info element so it stays hidden
+  info.classList.remove("show");
+
+  // add event listener to each button and upon click toggle the show class
+  button.addEventListener("click", () => {
+    info.classList.toggle("show");
+  });
+});
+
 // fullscreen and exit full screen buttons
 const btnFS=document.querySelector("#btnFS");
 const btnWS=document.querySelector("#btnWS");
@@ -22,6 +38,45 @@ document.documentElement.requestFullscreen();
 function exitFullscreen() {
 document.exitFullscreen();
 }
+
+
+// for the image gallery
+document.querySelectorAll('.grid-item').forEach((container) => {
+  const images = container.querySelectorAll('img');
+  let currentIndex = 0;
+
+  const showImage = (index) => {
+    images.forEach((img, i) => {
+    if (i === index) 
+      img.style.display = 'block';
+    else 
+      img.style.display = 'none';
+    });
+  };
+
+  // make sure there's atleast one image to show
+  if (images.length > 0) {
+    showImage(currentIndex);
+  }
+
+  const btnPrev = container.querySelector('.btn-prev');
+  const btnNext = container.querySelector('.btn-next');
+
+  if (btnPrev) {
+    btnPrev.addEventListener('click', () => {
+      currentIndex = (currentIndex - 1 + images.length) % images.length;
+      showImage(currentIndex);
+    });
+  }
+
+  if (btnNext) {
+    btnNext.addEventListener('click', () => {
+      currentIndex = (currentIndex + 1) % images.length;
+      showImage(currentIndex);
+    });
+  }
+});
+
 
 // for form elements
 const showFeedbackBtn = document.querySelector("#showFeedback");
@@ -50,6 +105,7 @@ hideall();
 //select the page based on the parameter passed in
 let onepage=document.querySelector("#page"+pgno);
 onepage.style.display="block"; //show the page
+
 }
 /*Listen for clicks on the buttons, assign anonymous
 eventhandler functions to call show function*/
@@ -130,5 +186,6 @@ document.querySelectorAll('.grid-landmark').forEach(landmark => {
   });
 
 });
+
 
 // need to implement minigame (guess the architectural style)
