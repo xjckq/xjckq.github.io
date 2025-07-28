@@ -141,6 +141,7 @@ article header  {
 
   .grid-landmark-logo {
     width: 100%;
+    border-right: none;
     border-bottom: 1px solid #000000;
   }
 
