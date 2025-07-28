@@ -117,6 +117,7 @@ show(2);
 });
 page3btn.addEventListener("click", function () {
 show(3);
+initGame();
 });
 page4btn.addEventListener("click", function () {
 show(4);
@@ -125,6 +126,157 @@ page5btn.addEventListener("click", function () {
 show(5);
 });
 hideall();
+
+// minigame
+const player = document.querySelector("#player");
+const questionElement = document.querySelector("#question");
+const livesElement = document.querySelector("#lives");
+const messageElement = document.querySelector("#message");
+const resetBtn = document.querySelector("#resetBtn");
+
+const leftBtn = document.querySelector("#leftBtn");
+const rightBtn = document.querySelector("#rightBtn");
+const upBtn = document.querySelector("#upBtn");
+const downBtn = document.querySelector("#downBtn");
+
+// game variables
+let playerX = 300;
+let playerY = 200;
+let lives = 3;
+let currentQuestion = 0;
+let correctLandmark = "";
+
+// landmark postions
+const landmarks = [
+    { id: "landmark1", x: 100, y: 50, name: "Statue of Liberty", emoji: "🗽" },
+    { id: "landmark2", x: 450, y: 80, name: "Eiffel Tower", emoji: "🗼" },
+    { id: "landmark3", x: 200, y: 150, name: "Parthenon", emoji: "🏛️" },
+    { id: "landmark4", x: 350, y: 300, name: "Neuschwanstein Castle", emoji: "🏰" },
+    { id: "landmark5", x: 500, y: 250, name: "Taj Mahal", emoji: "🕌" }
+];
+
+const questions = [
+    {
+        question: "Which landmark is a gift from France to the United States?",
+        answer: "Statue of Liberty"
+    },
+    {
+        question: "Which landmark was built for the 1889 World's Fair?",
+        answer: "Eiffel Tower"
+    },
+    {
+        question: "Which landmark is an ancient temple in Greece?",
+        answer: "Parthenon"
+    },
+    {
+        question: "Which landmark inspired Disney's Sleeping Beauty Castle?",
+        answer: "Neuschwanstein Castle"
+    },
+    {
+        question: "Which landmark is a white marble mausoleum in India?",
+        answer: "Taj Mahal"
+    }
+];
+
+
+// initialize the game
+function initGame() {
+    // set player inital pos to 300x 200y
+    playerX = 300;
+    playerY = 200;
+    updatePlayerPosition();
+    
+    // reset lives
+    lives = 3;
+    livesElement.textContent = `Lives: ${lives}`;
+    
+    // set random question
+    currentQuestion = Math.floor(Math.random() * questions.length);
+    questionElement.textContent = questions[currentQuestion].question;
+    correctLandmark = questions[currentQuestion].answer;
+    
+    // clear message
+    messageElement.textContent = "";
+    
+    // position landmarks
+    landmarks.forEach(landmark => {
+        const element = document.querySelector(`#${landmark.id}`);
+        element.style.left = `${landmark.x}px`;
+        element.style.top = `${landmark.y}px`;
+        element.textContent = landmark.emoji;
+    });
+}
+
+// to update player pos on screen
+function updatePlayerPosition() {
+    player.style.left = `${playerX}px`;
+    player.style.top = `${playerY}px`;
+}
+
+// check collision with landmarks
+function checkCollision() {
+
+    const playerRect = player.getBoundingClientRect();
+    // check each landmark for collision using bounding rectangles
+    landmarks.forEach(landmark => {
+        const landmarkElement = document.querySelector(`#${landmark.id}`);
+        const landmarkRect = landmarkElement.getBoundingClientRect();
+        
+        // check if player intersects with landmark
+        if (!(playerRect.right < landmarkRect.left || playerRect.left > landmarkRect.right || playerRect.bottom < landmarkRect.top || playerRect.top > landmarkRect.bottom)) {
+            
+          // if landmark is the correct one then show success message
+            if (landmark.name === correctLandmark) {
+                messageElement.textContent = "Correct! You found the right landmark!";
+                // set text color to green and then start new round after 2 sec
+                messageElement.style.color = "green";
+                setTimeout(() => {
+                    initGame(); 
+                }, 2000);
+            } 
+            // if landmark is not the correct one then reduce lives and show wrong message
+            else {
+                lives--;
+                livesElement.textContent = `Lives: ${lives}`;
+                messageElement.textContent = `Wrong! That's the ${landmark.name}. Try again!`;
+                messageElement.style.color = "red";
+                
+                // if lives reach 0 then show game over message
+                if (lives <= 0) {
+                    messageElement.textContent = "Game Over! Press Reset to play again.";
+                    // to disable all the movement buttons
+                    leftBtn.disabled = rightBtn.disabled = upBtn.disabled = downBtn.disabled = true;
+                }
+            }
+        }
+    });
+}
+
+// move player based on button clicks
+function movePlayer(dx, dy) {
+    // if player is outside boundary then return/dont move
+    if (playerX + dx < 0 || playerX + dx > 560 || playerY + dy < 0 || playerY + dy > 360) {
+        return; 
+    }
+    
+    // update player position
+    playerX += dx;
+    playerY += dy;
+    updatePlayerPosition();
+    checkCollision();
+}
+
+leftBtn.addEventListener("click", () => movePlayer(-20, 0));
+rightBtn.addEventListener("click", () => movePlayer(20, 0));
+upBtn.addEventListener("click", () => movePlayer(0, -20));
+downBtn.addEventListener("click", () => movePlayer(0, 20));
+resetBtn.addEventListener("click", () => {
+  // enabling all buttons again and initializing the game
+  leftBtn.disabled = rightBtn.disabled = upBtn.disabled = downBtn.disabled = false;
+    initGame();
+});
+
+
 
 
 function toggleMenus(){ /*open and close menu*/
@@ -188,4 +340,3 @@ document.querySelectorAll('.grid-landmark').forEach(landmark => {
 });
 
 
-// need to implement minigame (guess the architectural style)
