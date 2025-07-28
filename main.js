@@ -27,9 +27,9 @@ document.exitFullscreen();
 const showFeedbackBtn = document.querySelector("#showFeedback");
 
 showFeedbackBtn.addEventListener("click", function() {
-    const name = document.querySelector("#userName").value || "Anonymous";
+    const name = document.querySelector("#userName").value;
     const landmark = document.querySelector("#landmark").value;
-    const rating = document.querySelector("input[name='stars']:checked")?.value || "No rating";
+    const rating = document.querySelector("input[name='stars']:checked")?.value;
     const comment = document.querySelector("#userComment").value;
     
     document.querySelector("#result").innerHTML = 
@@ -93,11 +93,10 @@ document.querySelectorAll('.grid-landmark').forEach(landmark => {
   timeline.querySelectorAll('.dot').forEach(dot => {
     dot.addEventListener('click', () => {
       const imgSrc = dot.getAttribute('data-img');
-      if (imgSrc) {
         imgElement.src = imgSrc;
         imgElement.style.display = 'inline-block';
         imgElement.style.opacity = '1';
-      }
+      
     });
 
     // hide image when mouse leaves the dot and timeline
