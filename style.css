@@ -318,23 +318,18 @@ height: 400px;
    display: flex;
 }
 
-.block{
-  animation: appear .5s ease;
-  animation-timeline: view();   /* to set thew animation to only happen when the elemnt is visible on the screen*/
-  animation-range: entry 0; /* makes the element happen when it enters viewport and ensures the animation is complete by the time is reaches 40% of the view port */
+.block {
+  opacity: 0;
+  transform: translateX(-20px);
+  transition: all 0.5s ease;
+}
+
+.block.visible {
+  opacity: 1;
+  transform: translateX(0);
 }
 
 
-@keyframes appear{
-  from {
-    opacity: 0;
-    transform: translateX(-50px); 
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0px);
-  }
-}
 
 /*CSS for responsive menu*/
 #hamIcon{display:none;}
@@ -665,6 +660,14 @@ nav ul{display:none;}
 
 
 /* for minigame*/
+
+#startBtn {
+  padding: 10px 20px;
+  font-size: 1.1rem;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+
 #game-container {
     max-width: 800px;
     margin: 0 auto;
@@ -679,6 +682,7 @@ nav ul{display:none;}
     background-color: #eff5f1;
     border: 2px solid #333;
     overflow: hidden;
+    display: none;
 }
 
 #player {
@@ -710,6 +714,7 @@ nav ul{display:none;}
 
 #controls {
     margin-top: 20px;
+    display: none;
 }
 
 #controls button {
@@ -725,11 +730,13 @@ nav ul{display:none;}
 #question {
     font-weight: bold;
     font-size: 18px;
+    display: none;
 }
 
 #lives {
     color: rgb(0, 0, 0);
     font-weight: bold;
+    display: none;
 }
 
 #message {
