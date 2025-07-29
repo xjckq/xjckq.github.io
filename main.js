@@ -148,11 +148,11 @@ let correctLandmark = "";
 
 // landmark postions
 const landmarks = [
-    { id: "landmark1", x: 100, y: 50, name: "Statue of Liberty", emoji: "🗽" },
-    { id: "landmark2", x: 450, y: 80, name: "Eiffel Tower", emoji: "🗼" },
-    { id: "landmark3", x: 200, y: 150, name: "Parthenon", emoji: "🏛️" },
-    { id: "landmark4", x: 350, y: 300, name: "Neuschwanstein Castle", emoji: "🏰" },
-    { id: "landmark5", x: 500, y: 250, name: "Taj Mahal", emoji: "🕌" }
+    { id: "landmark1", x: 100, y: 50, name: "Statue of Liberty" },
+    { id: "landmark2", x: 450, y: 80, name: "Eiffel Tower" },
+    { id: "landmark3", x: 200, y: 150, name: "Parthenon" },
+    { id: "landmark4", x: 350, y: 300, name: "Neuschwanstein Castle" },
+    { id: "landmark5", x: 500, y: 250, name: "Taj Mahal" }
 ];
 
 const questions = [
@@ -203,7 +203,6 @@ function initGame() {
         const element = document.querySelector(`#${landmark.id}`);
         element.style.left = `${landmark.x}px`;
         element.style.top = `${landmark.y}px`;
-        element.textContent = landmark.emoji;
     });
 }
 
@@ -228,10 +227,12 @@ function checkCollision() {
           // if landmark is the correct one then show success message
             if (landmark.name === correctLandmark) {
                 messageElement.textContent = "Correct! You found the right landmark!";
-                // set text color to green and then start new round after 2 sec
+                // set text color to green, disable all btn and then start new round after 2s
                 messageElement.style.color = "green";
+                leftBtn.disabled = rightBtn.disabled = upBtn.disabled = downBtn.disabled = true;
                 setTimeout(() => {
-                    initGame(); 
+                   leftBtn.disabled = rightBtn.disabled = upBtn.disabled = downBtn.disabled = false;
+                   initGame(); 
                 }, 2000);
             } 
             // if landmark is not the correct one then reduce lives and show wrong message
@@ -240,11 +241,19 @@ function checkCollision() {
                 livesElement.textContent = `Lives: ${lives}`;
                 messageElement.textContent = `Wrong! That's the ${landmark.name}. Try again!`;
                 messageElement.style.color = "red";
+                leftBtn.disabled = rightBtn.disabled = upBtn.disabled = downBtn.disabled = true;
+                // reset player position and enable btns aft 1s
+                setTimeout(() => {
+                leftBtn.disabled = rightBtn.disabled = upBtn.disabled = downBtn.disabled = false;
+                playerX = 300;
+                playerY = 200;
+                updatePlayerPosition();
+                }, 1000);
                 
-                // if lives reach 0 then show game over message
+                // if lives is 0 then show game over message
                 if (lives <= 0) {
                     messageElement.textContent = "Game Over! Press Reset to play again.";
-                    // to disable all the movement buttons
+                    // disable all the movement buttons
                     leftBtn.disabled = rightBtn.disabled = upBtn.disabled = downBtn.disabled = true;
                 }
             }
@@ -252,7 +261,7 @@ function checkCollision() {
     });
 }
 
-// move player based on button clicks
+// move player based on btn click
 function movePlayer(dx, dy) {
     // if player is outside boundary then return/dont move
     if (playerX + dx < 0 || playerX + dx > 560 || playerY + dy < 0 || playerY + dy > 360) {
@@ -271,11 +280,10 @@ rightBtn.addEventListener("click", () => movePlayer(20, 0));
 upBtn.addEventListener("click", () => movePlayer(0, -20));
 downBtn.addEventListener("click", () => movePlayer(0, 20));
 resetBtn.addEventListener("click", () => {
-  // enabling all buttons again and initializing the game
+  // enable all btn again and initialize the game
   leftBtn.disabled = rightBtn.disabled = upBtn.disabled = downBtn.disabled = false;
     initGame();
 });
-
 
 
 

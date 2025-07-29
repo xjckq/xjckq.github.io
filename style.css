@@ -74,6 +74,7 @@ header {
 article header  {
   text-align: center;
   background: rgb(0, 0, 0);
+  color: #ffffff;
 }
 
 p {
@@ -605,8 +606,68 @@ nav ul{display:none;}
     background: white;
 }
 
-/* for guessing game */
-  /* game container */
+/* for map */
+#map-container {
+  position: relative;
+  width: 800px;  
+  height: 500px; 
+  margin: 20px auto;
+  border: 2px solid #000000;
+  border-radius: 8px;
+  background-color: #ffffff; 
+  overflow: hidden;
+}
+
+
+.continent-map {
+  position: absolute;
+  width: 180px;       
+height:auto;
+  transition: transform 0.3s;
+}
+
+
+
+#northAmerica {
+  top: 50px;
+  left: 10px;
+  width: 300px;       
+  height: auto;
+}
+
+#southAmerica {
+  top: 200px;
+  left: 95px;
+}
+
+#europe {
+  top: 50px;
+  left: 280px;
+}
+
+#asia {
+  top: 110px;
+  left: 410px;
+  width: 300px;       
+  height: auto;
+}
+
+#africa {
+  top: 220px;
+  left: 285px;
+}
+
+#australia {
+  top: 350px;
+  left: 600px;
+}
+
+.continent-map:hover {
+  transform: scale(1.1);
+}
+
+
+/* for minigame*/
 #game-container {
     max-width: 800px;
     margin: 0 auto;
@@ -618,7 +679,7 @@ nav ul{display:none;}
     width: 600px;
     height: 400px;
     margin: 20px auto;
-    background-color: #dadada;
+    background-color: #eff5f1;
     border: 2px solid #333;
     overflow: hidden;
 }
@@ -638,13 +699,16 @@ nav ul{display:none;}
 
 .landmark {
     position: absolute;
-    font-size: 30px;
-    width: 40px;
-    height: 40px;
+    width: 80px;
+    height: 80px;
     display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
+    border: 1px solid rgb(0, 0, 0);
+}
+
+.landmark img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: cover; 
 }
 
 #controls {
