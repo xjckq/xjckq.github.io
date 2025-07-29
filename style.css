@@ -618,15 +618,12 @@ nav ul{display:none;}
   overflow: hidden;
 }
 
-
 .continent-map {
   position: absolute;
   width: 180px;       
-height:auto;
+  height:auto;
   transition: transform 0.3s;
 }
-
-
 
 #northAmerica {
   top: 50px;
