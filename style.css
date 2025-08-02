@@ -546,7 +546,7 @@ nav ul{display:none;}
   .grid-cultural-logo img {
     width: 100%;
     height: 300px;
-    object-fit: cover;
+    object-fit: fill;
   }
 
   /* flex layouts */
@@ -630,6 +630,12 @@ nav ul{display:none;}
   }
   
   /* minigame */
+
+  #maze-area {
+    width: 100%;
+    height: 300px;
+  }
+
    #player {
     width: 8%;
     height: 10%;
