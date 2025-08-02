@@ -590,50 +590,65 @@ nav ul{display:none;}
   
   /* map */
   #map-container {
-    width: 100%;
-    height: 300px;
+    aspect-ratio: 1/1;
   }
-  
-  .continent-map {
-    width: 80px;
+
+   .continent-map {
+    width: 30%;
   }
   
   #northAmerica {
-    top: 30px;
-    left: 5px;
-    width: 120px;
+    top: 5%;
+    left: 5%;
+    width: 40%;
   }
   
   #southAmerica {
-    top: 100px;
-    left: 40px;
+    top: 30%;
+    left: 15%;
   }
   
   #europe {
-    top: 30px;
-    left: 120px;
+    top: 5%;
+    left: 45%;
   }
   
   #asia {
-    top: 60px;
-    left: 180px;
-    width: 150px;
+    top: 15%;
+    left: 55%;
+    width: 40%;
   }
   
   #africa {
-    top: 120px;
-    left: 130px;
+    top: 35%;
+    left: 45%;
   }
   
   #australia {
-    top: 200px;
-    left: 250px;
+    top: 60%;
+    left: 70%;
   }
   
   /* minigame */
-  #maze-area {
-    width: 100%;
-    height: 300px;
+   #player {
+    width: 8%;
+    height: 10%;
+  }
+  
+  .landmark {
+    width: 15%;
+    height: 15%;
+  }
+  
+  #controls button {
+    padding: 15px 25px;
+    margin: 8px;
+    font-size: 18px;
+  }
+  
+  #question {
+    font-size: 16px;
+    padding: 0 10px;
   }
 
   /* cultural significance section */
@@ -715,54 +730,56 @@ nav ul{display:none;}
 /* for map */
 #map-container {
   position: relative;
-  width: 800px;  
-  height: 500px; 
+  width: 100%; /* Changed from fixed width to percentage */
+  max-width: 800px; /* Maximum size on larger screens */
+  height: auto; /* Changed from fixed height */
+  aspect-ratio: 8/5; /* Maintain aspect ratio (800/500) */
   margin: 20px auto;
   border: 2px solid #000000;
   border-radius: 8px;
-  background-color: #ffffff; 
+  background-color: #ffffff;
   overflow: hidden;
 }
 
 .continent-map {
   position: absolute;
-  width: 180px;       
-  height:auto;
+  width: 22.5%; /* Changed from fixed width to percentage */
+  max-width: 180px;
+  height: auto;
   transition: transform 0.3s;
 }
 
+/* Adjust positions using percentages */
 #northAmerica {
-  top: 50px;
-  left: 10px;
-  width: 300px;       
-  height: auto;
+  top: 10%;
+  left: 1.25%;
+  width: 37.5%; /* 300/800 */
 }
 
 #southAmerica {
-  top: 200px;
-  left: 95px;
+  top: 40%;
+  left: 12%;
 }
 
 #europe {
-  top: 50px;
-  left: 280px;
+  top: 10%;
+  left: 35%;
 }
 
 #asia {
-  top: 110px;
-  left: 410px;
-  width: 300px;       
-  height: auto;
+  top: 22%;
+  left: 51.25%;
+  width: 37.5%; /* 300/800 */
 }
 
 #africa {
-  top: 220px;
-  left: 285px;
+  top: 44%;
+  left: 35.5%;
 }
 
 #australia {
-  top: 350px;
-  left: 600px;
+  top: 70%;
+  left: 75%;
 }
 
 .continent-map:hover {
@@ -771,15 +788,16 @@ nav ul{display:none;}
 
 /* for minigame*/
 #startBtn{
-  padding: 10px 20px;
-  font-size: 1.1rem;
+  margin: 10px auto; 
+  padding: 10px;
+  font-size: 1.1em;
   margin-bottom: 10px;
 }
 
 #resetBtn{
-  padding: 10px 20px;
-  font-size: 1.1rem;
-  margin-bottom: 10px;
+  margin: 10px auto; 
+  padding: 10px;
+  font-size: 1.1em;
   display: none;
 }
 
@@ -790,36 +808,43 @@ nav ul{display:none;}
 }
 
 #maze-area {
-    position: relative;
-    width: 600px;
-    height: 400px;
-    margin: 20px auto;
-    background-color: #eff5f1;
-    border: 2px solid #333;
-    overflow: hidden;
-    display: none;
-} 
+  position: relative;
+  width: 100%;
+  max-width: 600px;
+  height: auto;
+  aspect-ratio: 3/2; 
+  margin: 20px auto;
+  background-color: #eff5f1;
+  border: 2px solid #333;
+  overflow: hidden;
+  display: none;
+}
 
 #player {
-    position: absolute;
-    width: 30px;
-    height: 30px;
-    background-color: blue;
-    color: white;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 10;
+  position: absolute;
+  width: 5%; 
+  height: 7.5%;
+  max-width: 30px;
+  max-height: 30px;
+  background-color: blue;
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
 }
 
 .landmark {
-    position: absolute;
-    width: 80px;
-    height: 80px;
-    display: flex;
-    border: 1px solid rgb(0, 0, 0);
+  position: absolute;
+  width: 13.3%; 
+  height: 20%;
+  max-width: 80px;
+  max-height: 80px;
+  display: flex;
+  border: 1px solid rgb(0, 0, 0);
 }
+
 
 .landmark img {
     max-width: 100%;
@@ -828,7 +853,7 @@ nav ul{display:none;}
 }
 
 #controls {
-    margin-top: 20px;
+    margin: 20px;
     display: none;
 }
 
