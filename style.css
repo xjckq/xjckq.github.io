@@ -545,7 +545,7 @@ nav ul{display:none;}
   .grid-item img,
   .grid-cultural-logo img {
     width: 100%;
-    height: auto;
+    height: 300px;
   }
 
   /* flex layouts */
