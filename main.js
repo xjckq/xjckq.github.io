@@ -62,6 +62,13 @@ const quizSubmitBtn = document.querySelector("#quizSubmitBtn");
 const quizScoreDisplay = document.querySelector("#quiz-score-display");
 const quizRestartBtn = document.querySelector("#quizRestartBtn");
 
+// ==== audio ====
+const winAudio = new Audio("audio/succeed.mp3");  
+const loseAudio = new Audio("audio/failed.mp3");
+const rightAnsAudio = new Audio("audio/rightanswer.mp3");
+const wrongAnsAudio = new Audio("audio/wronganswer.mp3"); 
+const movingAudio = new Audio("audio/move.mp3"); 
+
 // ======= NAVBAR =======
 //select all subtopic pages
 function hideall(){ //function to hide all pages
@@ -71,6 +78,7 @@ onepage.style.display="none"; //hide it
 }
 
 function show(pgno){ //function to show selected page no
+resetAllElements();
 hideall();
 //select the page based on the parameter passed in
 let onepage=document.querySelector("#page"+pgno);
@@ -212,74 +220,44 @@ const continentLandmarks = {
   northAmerica: [
     "images/statueofliberty.png",
     "images/mountrushmore.jpg",
-    "images/nationalmall.jpg",
-    "images/hollywoodsign.jpg",
-    "images/route66.jpg",
     "images/goldengatebridge.jpg",
-    "images/gatewayarch.jpg",
-    "images/spaceneedle.jpg",
-    "images/cloudgate.jpg",
+    "images/grandcanyon.jpg",
     "images/niagarafalls.jpg"
   ],
   southAmerica: [
-    "images/christtheredeemer.jpg",
-    "images/machu_picchu.jpg",
-    "images/sugarloafmountain.jpg",
+    "images/machupicchu.jpg",
     "images/iguazufalls.jpg",
-    "images/salaruyuni.jpg",
-    "images/valparaiso.jpg",
-    "images/atacama.jpg",
-    "images/amazonriver.jpg",
-    "images/pantanal.jpg",
-    "images/lake_titicaca.jpg"
+    "images/angelfalls.jpg",
+    "images/christtheredeemer.jpg",
+    "images/easterisland.jpg",
   ],
   europe: [
     "images/eiffeltower.jpg",
     "images/colosseum.jpg",
     "images/bigben.jpg",
     "images/parthenon.png",
-    "images/sagradafamilia.jpg",
-    "images/neushwansteincastle.jpg",
-    "images/acropolis.jpg",
-    "images/stonehenge.jpg",
-    "images/stbasil.jpg",
-    "images/louvre.jpg"
+    "images/leaningtower.png",
   ],
   asia: [
-    "images/greatwallofchina.jpg",
+    "images/wallofchina.jpg",
     "images/tajmahal.jpg",
-    "images/fushimiinari.jpg",
     "images/angkorwat.jpg",
-    "images/marina_bay_sands.jpg",
     "images/mtfuji.jpg",
-    "images/burjkhalifa.jpg",
-    "images/petronastowers.jpg",
-    "images/himejicastle.jpg",
-    "images/lotustemple.jpg"
+    "images/borobudurtemple.jpg"
   ],
   africa: [
-    "images/pyramidofgiza.jpg",
-    "images/tablemountain.jpg",
-    "images/sphinx.jpg",
+    "images/pyramids.png",
+    "images/tablemountain.png",
     "images/victoriafalls.jpg",
-    "images/rockhewnchurches.jpg",
-    "images/marrakech.jpg",
-    "images/sahara.jpg",
     "images/kilimanjaro.jpg",
-    "images/capetown.jpg",
     "images/serengeti.jpg"
   ],
   australia: [
     "images/sydneyoperahouse.jpg",
     "images/uluru.jpg",
-    "images/greatbarrierreef.jpg",
     "images/harbourbridge.jpg",
-    "images/fraserisland.jpg",
-    "images/blue_mountains.jpg",
-    "images/freycinet.jpg",
-    "images/kakadunationalpark.jpg",
-    "images/12apostles.jpg",
-    "images/cradle_mountain.jpg"
+    "images/bluemountains.jpg",
+    "images/milfordsound.jpg"
   ]
 };
 
@@ -330,6 +308,9 @@ let playerY = 200;
 let lives = 3;
 let currentQuestion = 0;
 let correctLandmark = "";
+let qnsAnswered = 0;
+let correctAns = 0;
+const totalQns = 5; 
 
 // hide game, text and controls initially
 mazeArea.style.display = "none";
@@ -339,36 +320,35 @@ livesElement.style.display = "none";
 
 // landmark postions
 const landmarks = [
-    { id: "landmark1", x: 100, y: 50, name: "Statue of Liberty" },
-    { id: "landmark2", x: 450, y: 80, name: "Eiffel Tower" },
-    { id: "landmark3", x: 200, y: 150, name: "Parthenon" },
-    { id: "landmark4", x: 350, y: 300, name: "Neuschwanstein Castle" },
+    { id: "landmark1", x: 100, y: 50, name: "Eiffel Tower" },
+    { id: "landmark2", x: 450, y: 80, name: "Angkor Wat" },
+    { id: "landmark3", x: 200, y: 150, name: "Machu Picchu" },
+    { id: "landmark4", x: 350, y: 300, name: "Great Wall of China" },
     { id: "landmark5", x: 500, y: 250, name: "Taj Mahal" }
 ];
 
 const questions = [
     {
-        question: "Which landmark is a gift from France to the United States?",
-        answer: "Statue of Liberty"
-    },
-    {
-        question: "Which landmark was built for the 1889 World's Fair?",
+        question: "Which landmark was built as the entrance arch for the 1889 World's Fair?",
         answer: "Eiffel Tower"
     },
     {
-        question: "Which landmark is an ancient temple in Greece?",
-        answer: "Parthenon"
+        question: "Which landmark is the world's largest religious monument?",
+        answer: "Angkor Wat"
     },
     {
-        question: "Which landmark inspired Disney's Sleeping Beauty Castle?",
-        answer: "Neuschwanstein Castle"
-    },
-    {
-        question: "Which landmark is a white marble mausoleum in India?",
+        question: "Which landmark was built as a mausoleum for Emperor Shah Jahan's wife?",
         answer: "Taj Mahal"
+    },
+    {
+        question: "Which landmark was an ancient Incan citadel in Peru?",
+        answer: "Machu Picchu"
+    },
+    {
+        question: "Which landmark was originally constructed to protect Chinese states against invasions?",
+        answer: "Great Wall of China"
     }
 ];
-
 // initialize game when start btn is clicked
 startBtn.addEventListener("click", initGame);
 
@@ -386,12 +366,14 @@ function initGame() {
     playerY = 200;
     updatePlayerPosition();
     
-    // reset lives
+    // reset varaibles
     lives = 3;
     livesElement.textContent = "Lives: " + lives;
+    qnsAnswered = 0;
+    correctAns = 0;
     
-    // set random question
-    currentQuestion = Math.floor(Math.random() * questions.length);
+    // initialize qns
+    currentQuestion = 0;
     questionElement.textContent = questions[currentQuestion].question;
     correctLandmark = questions[currentQuestion].answer;
     
@@ -413,6 +395,16 @@ function updatePlayerPosition() {
   player.style.top = playerY + "px";
 }
 
+// change text when player win and only show reset button
+function winGame() {
+    messageElement.textContent = "Congratulations, you've answered all questions correctly!";
+    messageElement.style.color = "green";
+    winAudio.play();
+    disableMovement();
+    controls.style.display = "none";
+    resetBtn.style.display = "block";
+}
+
 // check collision with landmarks
 function checkCollision() {
 
@@ -428,13 +420,14 @@ function checkCollision() {
     const isOverlapping = !(playerRect.right < landmarkRect.left || playerRect.left > landmarkRect.right ||playerRect.bottom < landmarkRect.top || playerRect.top > landmarkRect.bottom);
     // if player is overlappign with landmark then check if is the correct landmark
     if (isOverlapping) {
-      // if correct then set text color to green, disable all btn and  start new round after 2s
+      // if correct, increase correct ans count then set text color to green, disable all btn and  start new round after 2s
       if (landmark.name === correctLandmark) { 
+        correctAns++; 
         messageElement.textContent = "Correct! You found the right landmark!";
         messageElement.style.color = "green";
+        rightAnsAudio.play();
         disableMovement();
         setTimeout(correctAnsTimeout, 2000);
-
       } 
       else {
         // if landmark is not the correct then minus lives and show wrong message
@@ -442,16 +435,18 @@ function checkCollision() {
         livesElement.textContent = "Lives: " + lives;
         messageElement.textContent = "Wrong! That's the " + landmark.name + ". Try again!";
         messageElement.style.color = "red";
+        wrongAnsAudio.play();
         disableMovement();
 
         // if lives is 0 then show game over message else reset player position and enable btns aft 1s
         if (lives <= 0) {
           messageElement.textContent = "Game Over! Press Reset to play again.";
+          loseAudio.play();
           disableMovement();
+          resetBtn.style.display = "block";
         }
         else
         setTimeout(wrongAnsTimeout, 1000);
-
       }
     }
   }
@@ -468,6 +463,7 @@ function movePlayer(dx, dy) {
     // update player position
     playerX += dx;
     playerY += dy;
+    movingAudio.play();
     updatePlayerPosition();
     checkCollision();
 }
@@ -501,8 +497,29 @@ function enableMovement() {
 
 // functions to allow a short delay then start a new round and enable movement afterwards
 function correctAnsTimeout() {
-  initGame();
-  enableMovement();
+    // move to next question
+    currentQuestion++;
+    
+    // if answered all 5 correctly then win the game
+    if (correctAns >= totalQns) 
+        winGame();
+    // else if player correct answer is lesser than that and there more qns then show next one and reset player pos
+    else if (currentQuestion < questions.length) {
+        questionElement.textContent = questions[currentQuestion].question;
+        correctLandmark = questions[currentQuestion].answer;
+        playerX = 300;
+        playerY = 200;
+        updatePlayerPosition();
+        enableMovement();
+        messageElement.textContent = "";
+    } 
+    // if there's no more qns then game over
+    else {
+        messageElement.textContent = "Game Over! You answered all questions but didn't get enough correct. Press Reset to play again.";
+        loseAudio.play();
+        disableMovement();
+        resetBtn.style.display = "block";
+    }
 }
 
 function wrongAnsTimeout() {
@@ -516,6 +533,7 @@ function wrongAnsTimeout() {
 resetBtn.addEventListener("click", function () {
   // enable all btn again and initialize the game
   leftBtn.disabled = rightBtn.disabled = upBtn.disabled = downBtn.disabled = false;
+  resetBtn.style.display = "none";
   initGame();
 });
 
@@ -606,6 +624,7 @@ function initQuiz() {
     quizContent.style.display = "block";
     quizQuestion.style.display = "block";
     quizButtons.style.display = "block";
+    resetBtn.style.display = "none";
     
     // reset all variables
     currentQuestionIndex = 0;
@@ -737,7 +756,7 @@ function restartQuiz() {
     quizRestartBtn.style.display = "none";
     startQuizBtn.style.display = "block";
     quizIntroTxt.style.display = "block"; 
-
+  
     // reset quiz variables
     currentQuestionIndex = 0;
     playerAnswers = [];
@@ -769,3 +788,105 @@ showFeedbackBtn.addEventListener("click", function () {
   document.querySelector("#result").innerHTML = results;
 });
 
+
+// ======= FUNCTION TO RESET EVERYTHING =======
+function resetAllElements() {
+    // reset landmark info toggle
+    const landmarkInfos = document.querySelectorAll(".landmark-info");
+    for (let i = 0; i < landmarkInfos.length; i++) {
+        landmarkInfos[i].classList.remove("show");
+    }
+
+    // reset grid gallery to first image
+    for (let i = 0; i < gridItems.length; i++) {
+        const container = gridItems[i];
+        const images = container.querySelectorAll('img');
+        for (let j = 0; j < images.length; j++) {
+            if (j === 0) 
+              images[j].style.display = 'block'; 
+            else 
+              images[j].style.display = 'none';  
+        }
+    }
+
+    // reset continent gallery
+    if (gallery) {
+        gallery.style.display = "none";
+        gallery.innerHTML = "";
+        currentContinent = null;
+    }
+
+    // minigame
+    if (mazeArea && controls && questionElement && livesElement && startBtn) {
+        mazeArea.style.display = "none";
+        controls.style.display = "none";
+        questionElement.style.display = "none";
+        livesElement.style.display = "none";
+        startBtn.style.display = "block";
+        messageElement.textContent = "";
+        
+        // reset player position
+        playerX = 300;
+        playerY = 200;
+        lives = 3;
+        currentQuestion = 0;
+        correctLandmark = "";
+        
+        // allow movement button
+        if (leftBtn && rightBtn && upBtn && downBtn) {
+            leftBtn.disabled = false;
+            rightBtn.disabled = false;
+            upBtn.disabled = false;
+            downBtn.disabled = false;
+        }
+    }
+
+    // reset scroll to top
+    if (scrollContainer) {
+        scrollContainer.scrollTop = 0;
+    }
+
+    // hide all description on cultural significance page
+    for (let i = 0; i < descriptions.length; i++) {
+        descriptions[i].style.display = 'none';
+    }
+    if (descriptions.length > 0) 
+        descriptions[0].style.display = 'block';
+
+    // quiz
+    if (quizContent && quizQuestion && quizButtons && quizScoreDisplay && quizRestartBtn && startQuizBtn && quizIntroTxt) {
+        // hide all quiz elements
+        quizContent.style.display = "none";
+        quizQuestion.style.display = "none";
+        quizButtons.style.display = "none";
+        quizScoreDisplay.style.display = "none";
+        quizRestartBtn.style.display = "none";
+        
+        // show btn and intro txt
+        startQuizBtn.style.display = "block";
+        quizIntroTxt.style.display = "block";
+        
+        // reset quiz variables
+        currentQuestionIndex = 0;
+        playerAnswers = [];
+        quizScore = 0;
+      
+    }
+
+    // form
+    const form = document.querySelector("form");
+    if (form) {
+        form.reset(); 
+    }
+    
+    // clear the form result display
+    const resultDiv = document.querySelector("#result");
+    if (resultDiv) 
+        resultDiv.innerHTML = "";
+
+    // reset hamburger menu
+    if (menuItemsList && hamBtn) {
+        menuItemsList.classList.remove("menuShow");
+        hamBtn.innerHTML = "Open Menu";
+    }
+}

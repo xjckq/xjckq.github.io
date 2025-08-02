@@ -144,20 +144,19 @@ nav ul li{display:inline;}
 .flex-list {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-evenly;
+  justify-content: center;
   gap: 20px;
   margin-top: 20px;
 }
 
 .flex-item {
-  width: 250px;
+  width: 8%;
   text-align: center;
 }
 
 /* img hover effect */
 .flex-item img {
   max-width: 100%;
-  height: auto;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   transition: transform 0.4s ease, box-shadow 0.3s ease;
@@ -167,7 +166,6 @@ nav ul li{display:inline;}
   transform: scale(1.05);
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
 }
-
 
 /* grids */
 
@@ -371,7 +369,6 @@ height: 400px;
 
 .desc-box {
   font-size: 1.5em;
-  border: #50a1ff 1px solid;
 }
 
 /* ==== visiting section ==== */
@@ -459,6 +456,11 @@ nav ul{display:none;}
 /* hide QR code on mobile */
   #qrCodeImg {
     display: none;
+  }
+
+  body {
+    font-size: 14px;
+    line-height: 1.4;
   }
   
   h1 {
@@ -557,22 +559,99 @@ nav ul{display:none;}
   }
   
   
-  /* form */
+  /* visiting tips */
+  .tips-container {
+    flex-direction: column;
+    gap: 15px;
+    padding: 15px;
+  }
+  
+  .tips-card {
+    flex: 1 1 100%;
+    max-width: 100%;
+  }
+  
+  /* forms */
   .form-container {
-    width: 95%;
-    margin: 20px auto;
+    width: 90%;
+    padding: 15px;
+  }
+  
+  /* map */
+  #map-container {
+    width: 100%;
+    height: 300px;
+  }
+  
+  .continent-map {
+    width: 80px;
+  }
+  
+  #northAmerica {
+    top: 30px;
+    left: 5px;
+    width: 120px;
+  }
+  
+  #southAmerica {
+    top: 100px;
+    left: 40px;
+  }
+  
+  #europe {
+    top: 30px;
+    left: 120px;
+  }
+  
+  #asia {
+    top: 60px;
+    left: 180px;
+    width: 150px;
+  }
+  
+  #africa {
+    top: 120px;
+    left: 130px;
+  }
+  
+  #australia {
+    top: 200px;
+    left: 250px;
+  }
+  
+  /* minigame */
+  #maze-area {
+    width: 100%;
+    height: 300px;
   }
 
   /* cultural significance section */
 
+  .landmark-desc {
+    width: 100%;
+    padding: 15px;
+  }
+  
   .landmark-desc h3 {
     font-size: 1.5em;
   }
 
   .desc-box {
-    font-size: 0.6em;
+    font-size: 1em;
     padding: 10px;
-    /* border: #3B7A57 1px solid; */
+    margin-top: 50px;
+    margin-bottom: 50px;
+  }
+
+    @keyframes fadeInWhenLoaded {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
 
 }
@@ -687,6 +766,13 @@ nav ul{display:none;}
   margin-bottom: 10px;
 }
 
+#resetBtn{
+  padding: 10px 20px;
+  font-size: 1.1rem;
+  margin-bottom: 10px;
+  display: none;
+}
+
 #game-container {
     max-width: 800px;
     margin: 0 auto;
@@ -779,3 +865,4 @@ color: #000000;
   padding: 10px;
   font-size: 1.1em;
 }
+
