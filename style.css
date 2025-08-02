@@ -332,7 +332,7 @@ nav ul li{display:inline;}
 }
 
 .scroll-btn:hover {
-  background-color: #aaa;
+  background-color: #a8a8a8;
 }
 
 
@@ -631,15 +631,51 @@ nav ul{display:none;}
   
   /* minigame */
   #maze-area {
-    aspect-ratio: 1/1;
+    width: 300px; 
+    height: 200px;
+    margin: 10px auto;
+  }
+
+  #game-container {
+    max-width: 100%;
+    padding: 0 10px; 
+  }
+  
+  #player {
+    width: 15px;
+    height: 15px;
+  }
+  
+  .landmark {
+    width: 40px;
+    height: 40px;
+  }
+  
+  #controls button {
+    padding: 8px 12px;
+    margin: 3px;
+    font-size: 14px;
+  }
+  
+  #startBtn, #resetBtn {
+    width: 90%; 
+    max-width: 200px;
   }
 
   /* cultural significance section */
+  .landmark-thumbnail {
+    max-height: 100%; 
+    width: 100%;
+    object-fit: cover;
+  }
 
   .landmark-desc {
     width: 100%;
+    height: auto;
     padding: 15px;
+    overflow-y: auto;
   }
+
   
   .landmark-desc h3 {
     font-size: 1.5em;
@@ -649,6 +685,12 @@ nav ul{display:none;}
     font-size: 1.2em;
     padding: 10px;
     margin: 10px;
+  }
+
+  .scroll-btn {
+    padding: 8px;
+    font-size: 16px;
+    min-height: 40px;
   }
 
     @keyframes fadeInWhenLoaded {
@@ -661,9 +703,7 @@ nav ul{display:none;}
       transform: translateY(0);
     }
   }
-
 }
-
 
 /*to unhide menu items*/
 .menuShow{display:block;}
@@ -789,9 +829,10 @@ nav ul{display:none;}
 }
 
 #maze-area {
-    position: relative;
+  position: relative;
     width: 600px;
     height: 400px;
+    max-width: 100%;
     margin: 20px auto;
     background-color: #eff5f1;
     border: 2px solid #333;
