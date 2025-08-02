@@ -540,6 +540,10 @@ nav ul{display:none;}
     width: 100%; 
   }
 
+  .grid-item h3{
+    color:#ffffff;
+  }
+
   /* images */
  .grid-landmark-logo img,
   .grid-item img,
@@ -563,7 +567,6 @@ nav ul{display:none;}
   .flex-item img {
   width: 100%;
   height: 100%;
-  /* Crop to fit aspect ratio */
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   transition: transform 0.4s ease, box-shadow 0.3s ease;
