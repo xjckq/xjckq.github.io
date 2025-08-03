@@ -176,7 +176,7 @@ function setupGallery(container) {
     // function to show only one img base on the index number and then hide the rest
     function showImage(index) {
         for (let j = 0; j < images.length; j++) {
-            if (j === index)
+            if (j == index)
                 images[j].style.display = 'block';
             else
                 images[j].style.display = 'none';
@@ -267,7 +267,7 @@ for (let i = 0; i < maps.length; i++) {
 function onContinentClick() {
     const continent = this.id; // get id of the continent that is clicked
 
-    if (continent === currentContinent && gallery.style.display === "flex") { // if clicked on the same continent agn then hide it
+    if (continent == currentContinent && gallery.style.display == "flex") { // if clicked on the same continent agn then hide it
         gallery.style.display = "none"; // hide
         gallery.innerHTML = ""; // clear prev content
         currentContinent = null;
@@ -414,7 +414,7 @@ function checkCollision() {
         // if player is overlappign with landmark then check if is the correct landmark
         if (isOverlapping) {
             // if correct, increase correct ans count then set text color to green, disable all btn and  start new round after 2s
-            if (landmark.name === correctLandmark) {
+            if (landmark.name == correctLandmark) {
                 correctAns++;
                 messageElement.textContent = "Correct! You found the right landmark!";
                 messageElement.style.color = "green";
@@ -653,7 +653,7 @@ function displayQuestion() {
     quizNextBtn.disabled = true; // disable until an answer is selected
     quizSubmitBtn.disabled = true;
     // show the next btn if it's not the last qns and show the submit btn if it's the last qns
-    if (currentQuestionIndex === quizQuestions.length - 1) {
+    if (currentQuestionIndex == quizQuestions.length - 1) {
         quizNextBtn.style.display = "none";
         quizSubmitBtn.style.display = "block";
     } else {
@@ -663,8 +663,8 @@ function displayQuestion() {
 }
 
 function updateQuizBtn(event) {
-    if (event.target.type === "radio") { // checks if the element clicked is a radio button 
-        if (currentQuestionIndex === quizQuestions.length - 1) // enable the next btn if it's not the last qns and disable the submit btn if it's the last qns
+    if (event.target.type == "radio") { // checks if the element clicked is a radio button 
+        if (currentQuestionIndex == quizQuestions.length - 1) // enable the next btn if it's not the last qns and disable the submit btn if it's the last qns
             quizSubmitBtn.disabled = false;
         else
             quizNextBtn.disabled = false;
@@ -711,7 +711,7 @@ function calculateScore() {
     quizScore = 0;
     // loops through the quiz and if the user answer matches the correct answer then add score
     for (let i = 0; i < quizQuestions.length; i++) {
-        if (playerAnswers[i] === quizQuestions[i].correct)
+        if (playerAnswers[i] == quizQuestions[i].correct)
             quizScore++;
     }
 }
@@ -795,7 +795,7 @@ function resetAllElements() {
         const container = gridItems[i];
         const images = container.querySelectorAll('img');
         for (let j = 0; j < images.length; j++) {
-            if (j === 0)
+            if (j == 0)
                 images[j].style.display = 'block';
             else
                 images[j].style.display = 'none';
@@ -864,12 +864,6 @@ function resetAllElements() {
     currentQuestionIndex = 0;
     playerAnswers = [];
     quizScore = 0;
-    }
-
-    // form
-    const form = document.querySelector("form");
-    if (form) {
-    form.reset(); 
     }
 
     // clear the form result display
