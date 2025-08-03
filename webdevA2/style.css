@@ -1,0 +1,962 @@
+* { 
+  box-sizing: border-box; 
+  margin: 0; 
+  padding: 0; 
+}
+
+/* ======== FONTS ======== */
+
+@font-face {
+  font-family: 'PlayfairDisplay';
+  src: url('../xjckq.github.io/fonts/PlayfairDisplay-Regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'LatoRegular';
+  src: url('../xjckq.github.io/fonts/Lato-Regular.ttf') format('truetype');
+}
+
+/* ======== BASE ======== */
+
+body { 
+  font-family: 'PlayfairDisplay', sans-serif; 
+  background: #F5F5F5;   
+  color: #000000;  
+  text-align: center;  
+  line-height: 1.5;  /* spacing btwn lines */
+}
+
+p {
+  font-family: 'LatoRegular', sans-serif;
+  color: #000000;
+}
+
+header {
+  text-align: center;
+  color: #000000;
+}
+
+article header {
+  text-align: center;
+  background: rgb(0, 0, 0);
+  color: #ffffff;
+}
+
+/* ======== FULLSCREEN BTN ======== */
+#btnFS, #btnWS {
+  background-color: #50a1ff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-family: 'LatoRegular', sans-serif;
+  padding: 5px;
+  margin: 5px;
+  margin-bottom: 10px;
+  transition: color 0.3s ease-in-out, transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;  /* smooth transitioning for the color , scale and shadow when hovered over */
+}
+
+#btnFS:hover, #btnWS:hover {
+  background-color: #4284cf;
+  transform: scale(1.05);
+}
+
+/* ======== SPRITE ICON ========= */
+
+.sns {
+  display: flex; 
+  justify-content: center;  
+  margin: 15px;
+  gap: 15px; /* to addspace btwn icons */
+}
+
+.icon {
+  display: block;
+  width: 40px;
+  height: 40px;
+  transition: transform 0.2s ease; /* smooth transition for the scaling when hovered over */
+}
+
+.icon:hover {
+  transform: scale(1.05);
+}
+
+.facebook {
+  background: url('images/facebook.png')  no-repeat 0 0;
+  background-size: contain;
+}
+
+.youtube {
+  background: url('images/youtube.png')  no-repeat 0 0;
+  background-size: contain;
+}
+
+
+/* ======== NAV BAR ======== */
+
+nav ul {
+  display: flex;
+  gap: 5em; /*space btwn nav items */
+  list-style: none; /* remove bullet points */
+  margin: 1em;
+  justify-content: center;
+}
+
+nav ul li {
+  display: inline;
+}
+
+nav button {
+  background-color: #50a1ff;
+  color: white; 
+  padding: 0.5em 1em;
+  border: none;
+  border-radius: 6px;
+  font-size: 1em;
+  font-family: 'PlayfairDisplay', serif; 
+  box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+  transition: color 0.3s ease-in-out, transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out; /* smooth transitioning for the color , scale and shadow when hovered over */
+}
+
+nav button:hover {
+  background-color: #4284cf; 
+  transform: scale(1.2);
+}
+
+nav button:active {
+  transform: scale(0.9);     
+}
+
+/* ======== PAGES ======== */
+
+.page {
+  color: rgb(0, 0, 0);  
+  width: 100vw; /* full viewport width */
+  min-height: 100vh; /* height must be full viewport height */
+  display: flex;
+  border: 2px solid #c4c4c4; 
+  border-radius: 12px; /* rounded corners */
+}
+
+.page article h2 {
+  color: #ffffff;
+  font-size: 3em;
+}
+
+#page1, #page2, #page3, #page4, #page5 {
+  background: #ececec; 
+  animation: fadeInWhenLoaded 0.8s ease forwards; /* fade in animation */
+  opacity: 0;  /* initlaly appear invisible */
+}
+
+#page2, #page4 {
+  color: white;
+}
+
+#page3, #page5 {
+  color: #2C2C2C;
+}
+
+/* ======== FLEX LAYOUT ======== */
+
+.flex-list {
+  display: flex;
+  flex-wrap: wrap; /* allow item to wrap around */
+  justify-content: center;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.flex-item {
+  width: 250px;
+  height: 150px;
+  margin: 10px;
+}
+
+.flex-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.4s ease; /* smooth transition for the scaling when hovered over */
+}
+
+.flex-item img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+}
+
+/* ======== LANDMARK GRID ======== */
+.grid-landmark {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 2 equal columns */
+  grid-template-rows: auto;
+}
+
+.grid-landmark-logo {
+  display: flex;
+  grid-column: 1 / 2; /* the first column */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* subtle box shadow effect */
+  border-radius: 0.5em;
+  overflow: hidden; /* hide overflow */
+  position: relative;
+  align-items: center;
+}
+
+.grid-landmark-logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+  transition: transform 0.4s ease;  /* smooth hover effect */
+}
+
+.grid-landmark-content {
+  display: flex;
+  grid-column: 2 / 3;  /* the second column */
+  text-align: center;
+  flex-direction: column;
+  justify-content: center;
+  padding: 20px;
+}
+
+/* ======== ARCHITECTURAL STYLE GRID ======== */
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);  /* 3 equal columns */
+  grid-template-rows: repeat(3, 1fr);  /* 3 equal rows */
+  gap: 20px;
+  padding: 20px;
+}
+
+.grid-item {
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+
+.grid-item img {
+  width: 100%;
+  height: 300px; 
+  object-fit: cover;
+}
+
+.style-content {
+  padding: 5px;
+}
+
+.style-content p {
+  margin-bottom: 10px;
+  text-align: left;
+  color: black;
+}
+
+/* ======== LANDMARK INFO ======== */
+
+.landmark-block {
+  margin: 10px;
+}
+
+.landmark-block button {
+  background-color: #000000;
+  color: white;
+  font-size: 1.5em;
+  font-family: 'PlayfairDisplay', serif;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  width: 70%; /* 70% of container width */    
+  height: 50px;   /* set at fixed height */  
+  transition: background-color .3s ease, transform .3s ease; /* smooth transition for color and scaling when hovered over */
+}
+
+.landmark-block button:hover {
+  background-color: #353535;
+  transform: scale(1.05);
+}
+
+.landmark-info {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: max-height .4s ease, opacity .4s ease, transform .4s ease; /* smooth expand effect */
+}
+
+.landmark-info p {
+  margin: 10px;
+}
+
+.landmark-info.show {
+  max-height: 100%; 
+  opacity: 1;
+}
+
+.landmark-info.hide {
+  max-height: 100%;
+  opacity: 0;
+}
+
+/* ======== CULTURAL SIGNIFICANCE SECTION ======== */
+
+.cultural-container {
+  display: flex;
+  height: 100vh;  /* height set to full viewport height */ 
+  padding: 10px;
+  gap: 20px;
+}
+
+.landmark-scroll-container {
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  border-right: 2px solid black;
+}
+
+.landmark-scroll {
+  flex-grow: 1;
+  overflow-y: hidden; 
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 10px;
+}
+
+.scroll-btn {
+  padding: 10px;
+  background-color: #ccc;
+  border: none;
+  font-size: 20px;
+  transition: background-color 0.2s;
+}
+
+.scroll-btn:hover {
+  background-color: #a8a8a8;
+}
+
+.landmark-thumbnail {
+  width: 100%;
+  height: auto;
+  border: none;
+  border-radius: 8px;
+  transition: transform 0.3s;
+}
+
+.landmark-thumbnail:hover {
+  transform: scale(1.03);
+}
+
+.landmark-desc {
+  display: flex;
+  width: 70%;
+  max-height: 100%;
+  padding: 30px;
+  border: 2px solid #c4c4c4;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  overflow-y: auto; /* allow vertical scrolling */
+  background-color: #ffffff;
+  color: #333;
+  text-align: center;
+  transition: all 0.3s ease-in-out;
+}
+
+.landmark-desc h3 {
+  font-size: 2.5em;
+}
+
+.desc-box {
+  font-size: 1.5em;
+}
+
+/* ======== VISITING TIPS ======== */
+
+.tips-container {
+  display: flex;
+  justify-content: space-around;
+  gap: 30px;
+  padding: 30px;
+}
+
+.tips-card {
+  flex: 1 1 300px;
+  background: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  padding: 20px;
+  max-width: 400px;
+  transition: transform 0.3s ease;
+}
+
+.tips-card:hover {
+  transform: translateY(-5px);
+}
+
+.tips-card h3 {
+  margin-bottom: 10px;
+}
+
+.tips-card ul {
+  text-align: left;
+  padding-left: 20px;
+  margin: 20px;
+}
+
+.tips-card ul li {
+  margin-bottom: 10px;
+  font-family: 'LatoRegular', sans-serif;
+}
+
+.visiting-form {
+  margin: 40px auto;
+  max-width: 600px;
+  background: #ffffff;
+  border-radius: 10px;
+  padding: 30px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.visiting-form h3 {
+  color: #3B7A57;
+  margin-bottom: 20px;
+}
+
+.rating {
+margin: 20px;
+}
+
+.rating-option {
+display: inline-block; /* inline with radio button */
+margin-right: 15px;
+}
+
+/* ======== ANIMATION ======== */
+
+.block {
+  opacity: 0; /* appear invisible */
+  transform: translateX(-20px); /* start at -20x */
+  transition: all 0.5s ease;  /* set everything to have smooth ease transition */
+}
+
+.block.visible {
+  opacity: 1; /* appear visible */
+  transform: translateX(0); /* move to normal pos */
+}
+
+@keyframes fadeInWhenLoaded {
+  from {
+    opacity: 0; /* appear invisible */
+    transform: translateY(20px); /* start at 20y */
+  }
+  to {
+    opacity: 1; /* appear visible */
+    transform: translateY(0px); /* move to normal pos */
+  }
+}
+
+/* ======== VISITING FORM======== */
+
+.form-container {
+  max-width: 400px;
+  margin: 20px auto;
+  padding: 20px;
+  background: #f5f5f5;
+  border-radius: 8px;
+}
+
+.form-container input, .form-container select, .form-container textarea {
+  width: 100%;
+  padding: 8px;
+  margin: 5px 0 15px;
+  border: 1px solid #ddd;
+}
+
+.form-container button {
+  background: #3B7A57;
+  color: white;
+  padding: 10px;
+  border: none;
+  width: 100%;
+}
+
+#result {
+  margin-top: 15px;
+  padding: 10px;
+  background: white;
+}
+
+/* ======== CONTINENT MAP ======== */
+
+#map-container {
+  position: relative;
+  width: 100%; 
+  max-width: 800px; 
+  height: 500px;
+  aspect-ratio: 8/5; 
+  margin: 20px auto;
+  border: 2px solid #000000;
+  border-radius: 8px;
+  background-color: #ffffff;
+  overflow: hidden;
+}
+
+.continent-map {
+  position: absolute; 
+  width: 22.5%;
+  max-width: 180px;
+  height: auto;
+  transition: transform 0.3s;
+}
+
+#northAmerica {
+  top: 10%;
+  left: 1.25%;
+  width: 37.5%; 
+}
+
+#southAmerica {
+  top: 40%;
+  left: 12%;
+}
+
+#europe {
+  top: 10%;
+  left: 35%;
+}
+
+#asia {
+  top: 22%;
+  left: 51.25%;
+  width: 37.5%;
+}
+
+#africa {
+  top: 44%;
+  left: 35.5%;
+}
+
+#australia {
+  top: 70%;
+  left: 75%;
+}
+
+.continent-map:hover {
+  transform: scale(1.1);
+}
+
+/* ======== MINIGAME ======== */
+
+#startBtn, #resetBtn {
+  margin: 10px auto; 
+  padding: 10px;
+  font-size: 1.1em;
+}
+
+#resetBtn {
+  display: none;
+}
+
+#game-container {
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+#maze-area {
+  position: relative;
+  width: 600px;
+  height: 400px;
+  padding-bottom: 66.67%;
+  margin: 20px auto;
+  background-color: #eff5f1;
+  border: 2px solid #333;
+  overflow: hidden;
+  display: none;
+} 
+
+#player {
+  position: absolute; /* allow it to move freely and be overlapped */
+  width: 30px;
+  height: 30px;
+  background-color: blue;
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+}
+
+.landmark {
+  position: absolute; /* allow it to move freely and be overlapped */
+  width: 80px; 
+  height: 80px;
+  display: flex;
+  border: 1px solid rgb(0, 0, 0);
+}
+
+.landmark img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: cover; 
+}
+
+#controls {
+  margin: 10px;
+  display: none;
+}
+
+#controls button {
+  padding: 10px 15px;
+  margin: 5px;
+  font-size: 16px;
+}
+
+#game-info {
+  margin-top: 25px;
+}
+
+#question {
+  font-weight: bold;
+  font-size: 18px;
+  display: none;
+}
+
+#lives {
+  color: rgb(0, 0, 0);
+  font-weight: bold;
+  display: none;
+}
+
+#message {
+  min-height: 24px;
+  color: green;
+  font-weight: bold;
+}
+
+/* ======== QUIZ ======== */
+.quiz-container {
+  color: #000000;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  background: #f5f5f5;
+  padding: 20px;
+  transition: transform 0.3s ease;
+}
+
+#startQuizBtn, #quizRestartBtn, #quizNextBtn, #quizSubmitBtn {
+  margin: 10px auto; 
+  padding: 10px;
+  font-size: 1.1em;
+}
+
+/* ======== FOR MOBILE ======== */
+#hamIcon{display:none;}
+@media screen and (max-width:800px){
+
+/*make a menu items vertical*/
+nav ul li{display:block;}
+
+/* unhide menu icon */
+#hamIcon{display:block;}
+
+/*hide the menu item list*/
+nav ul{display:none;}
+
+/* hide QR code and fullscreen btn on mobile */
+#qrCodeImg, #btnWS, #btnFS{
+display: none;
+}
+
+
+body {
+font-size: 14px;
+line-height: 1.4;
+}
+
+h1 {
+font-size: 3em;
+margin: 0.5em 0;
+color: #000000; 
+}
+
+h1::after {
+content: "(mobile)";
+font-size: 0.5em;
+display: block;
+}
+
+/* ---- change text and color ---- */
+section h2, h3 {
+color:#000000;
+}
+
+h2, h3{
+color:#ffffff;
+font-size: 1.5em;
+margin: 0.5em 0;
+}
+
+#page4 h3{
+color:#000000;
+}
+
+article h2{
+color:#ffffff;
+
+}
+
+/* menu */  
+#hamIcon {
+display: block;
+font-size: 2em;
+padding: 0.5em;
+}
+
+
+nav ul {
+display: none;
+flex-direction: column;
+gap: 1em;
+padding: 1em;
+}
+
+
+/* show mobile menu when hamburger is clicked */
+nav ul.menuShow {
+display: flex;
+}
+
+nav ul li {
+display: block;
+width: 100%;
+}
+
+/* ---- grid layouts ----*/
+/* set landmark grid to single column on mobile */
+.grid-landmark {
+grid-template-columns: 1fr; 
+grid-template-rows: 1fr;
+}
+
+/* adjust logo container for mobile */
+.grid-landmark-logo {
+grid-column: 1 / 1;
+max-height: 400px;
+margin: 10px;
+border-right: none;
+}
+
+/* change the content to be below img on mobile */
+.grid-landmark-content {
+grid-column: 1 / 1;
+grid-row: 2 / 2;
+}
+
+/* ---- architectural styles ---- */
+/* set architectural style grid to single column on mobile */
+.grid-container {
+grid-template-columns: 1fr; 
+grid-template-rows: 1fr;
+}
+
+.grid-item {
+width: 100%; 
+}
+
+/* change img sizing to fit for mobile */
+.grid-landmark-logo img, .grid-item img {
+width: 100%;
+height: 400px;
+object-fit: cover;
+}
+
+/* ---- flex layout ---- */
+
+/* change img sizing to fit for mobile */
+.flex-item img {
+max-width: 250px;
+max-height:200px;
+border-radius: 10px;
+box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+transition: transform 0.4s ease, box-shadow 0.3s ease;
+}
+
+/* ---- cultural significance section ----*/
+/* set it to vertical on mobile */
+.cultural-container {
+flex-direction: column;
+height: auto;
+width: 100%;
+gap: 10px;
+padding: 10px;
+}
+
+/* full width container for scrolling */
+.landmark-scroll-container {
+min-width: 100%;
+max-height: 600px;
+border: none;
+margin-bottom: 10px;
+}
+
+.landmark-thumbnail {
+min-width: 100%;
+max-height: 100%;
+object-fit: cover;
+}
+
+.landmark-desc {
+min-width: 100%;
+padding: 15px;
+}
+
+
+/* ---- visiting tips ---- */
+/* set it to vertical on mobile */
+.tips-container {
+flex-direction: column;
+gap: 15px;
+padding: 15px;
+}
+
+/* change width for mobile */
+.tips-card {
+flex: 1 1 100%;
+max-width: 100%;
+}
+
+/* forms */
+.form-container {
+width: 90%;
+padding: 15px;
+}
+
+/* ---- map ---- */
+/* set aspect ratio to a square */
+#map-container {
+height: 600px;
+}
+
+/* ---- resizing continent maps ---- */
+.continent-map {
+width: 30%;
+}
+
+#northAmerica {
+top: 5%;
+left: 5%;
+width: 40%;
+}
+
+#southAmerica {
+top: 30%;
+left: 15%;
+}
+
+#europe {
+top: 5%;
+left: 45%;
+}
+
+#asia {
+top: 15%;
+left: 55%;
+width: 40%;
+}
+
+#africa {
+top: 35%;
+left: 45%;
+}
+
+#australia {
+top: 60%;
+left: 70%;
+}
+
+/* ---- minigame ---- */
+
+/* resizing dimension and size for mobile */
+
+#maze-area {
+  width: 100vw;
+  height: 100vw; 
+  max-width: 500px; 
+  max-height: 500px;
+}
+
+#player {
+width: 20px;
+height: 20px;
+}
+
+.landmark {
+width: 60px;
+height: 60px;
+}
+
+#controls button {
+padding: 8px 12px;
+margin-bottom: 10px;
+font-size: 14px;
+}
+
+#startBtn, #resetBtn {
+width: 90%; 
+max-width: 200px;
+}
+
+/* ---- cultural significance section ---- */
+.landmark-thumbnail img{
+max-height: 200px; 
+max-width: 30%;
+object-fit: cover;
+}
+
+.landmark-thumbnail{
+max-width: 100%;
+}
+
+.landmark-desc {
+max-width: 70%;
+max-height: 100%;
+overflow-y: auto;
+}
+
+
+.landmark-desc h3 {
+font-size: 1.5em;
+}
+
+.desc-box {
+font-size: 1.2em;
+padding: 10px;
+margin: 10px;
+}
+
+.scroll-btn {
+padding: 8px;
+font-size: 16px;
+min-height: 40px;
+}
+
+/* fade and move slightly when page is loaded  */
+@keyframes fadeInWhenLoaded {
+from {
+opacity: 0;
+transform: translateY(10px);
+}
+to {
+opacity: 1;
+transform: translateY(0);
+}
+}
+}
+
+/*to unhide menu items*/
+.menuShow{display:block;}

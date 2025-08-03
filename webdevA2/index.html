@@ -1,0 +1,963 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>02_Josline_244539K_A2</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1,user-scalable=no">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+    <!-- get icons from https://www.favicon.cc -->
+
+    
+    <link rel="manifest" href="manifest.json"> <!--for android-->
+
+    <link rel="stylesheet" href="style.css">
+    <script src="main.js" defer></script>
+</head>
+    <body>
+        <header>
+        <h1>World Landmarks</h1>
+        </header>
+        <nav> <!--menu system-->
+        <!--hamburger icon for mobile-->
+        <button id="hamIcon">Open Menu</button>
+        <ul>
+        <li><button id="page1btn">History and Origin</button></li>
+        <li><button id="page2btn">Architectural Styles</button></li>
+        <li><button id="page3btn">Landmarks by continent</button></li>
+        <li><button id="page4btn">Cultural significance</button></li>
+        <li><button id="page5btn">Visiting tips</button></li>
+        </ul>
+        </nav>
+
+        <main id="pagecontainer">
+
+            <!-- button fullscreen  -->
+            <button id="btnFS">Full Screen</button>
+            <button id="btnWS">Exit Full Screen</button>
+            <!-- history and origin -->
+            <section class="page" id="page1">
+                <header>
+                    <h2>History and Origin</h2>
+                </header>
+                <p>This is a collection of the top 10 famous landmarks around the world, going over the overview, historical purpose and origin and interesting fun facts about them.</p>
+                <!-- EIFFEL TOWER -->
+                <article>
+                    <header>
+                        <h2>Eiffel Tower</h2>
+                    </header>
+                    <div class="grid-landmark block">
+
+                        <div class="grid-landmark-logo">
+                                    <img src="images/eiffeltower.jpg" alt="Eiffel Tower" class="active">
+                        </div>
+                        
+                        <div class="grid-landmark-content">
+
+                            <!-- Landmark details-->
+                            <div class="landmark-block">
+                            <button class="btn-landmark">Overview</button>
+                            <div class="landmark-info">
+                            <p>The Eiffel Tower was built in Paris, France in the year 1889.<br>
+                                It is a wrought-iron lattice tower located on the Champ de Mars in Paris, named after the engineer Gustave Eiffel, whose company designed and built the tower and is one of the most recognizable landmark in the world and a global cultural icon of France and one of the most-visited paid monuments in the world.</p>
+                            </div>
+                            </div>
+
+                            <!-- Landamrk Purpose -->
+                            <div class="landmark-block">
+                            <button class="btn-landmark">Historical Purpose</button>
+                            <div class="landmark-info">
+                            <p>The Eiffel Tower was originally constructed as the entrance arch for the 1889 Exposition Universelle (World's Fair) held in Paris, celebrating the 100th anniversary of the French Revolution. Its purpose was to showcase French engineering and industrial prowess to the world. Though initially met with criticism, it became a symbol of modernity and innovation.</p>
+                            </div>
+                            </div>
+
+                            <!-- Landmark Origin -->
+                            <div class="landmark-block">
+                            <button class="btn-landmark">Origin</button>
+                            <div class="landmark-info">
+                            <p>The tower was designed by engineer Gustave Eiffel and his company. Construction began in 1887 and was completed in 1889. Made primarily of wrought iron, the structure stands on the Champ de Mars in Paris. It was named after Gustave Eiffel and remains one of the most recognizable landmarks globally.</p>
+                            </div>
+                            </div>
+                            
+                            <!-- Landmark Fun facts -->
+                            <div class="landmark-block">
+                            <button class="btn-landmark">Fun Fact!</button>
+                            <div class="landmark-info">
+                                <p>The Eiffel Tower was the tallest man-made structure in the world for 41 years until the Chrysler Building in New York surpassed it in 1930.</p>
+                            </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </article>
+
+                <!-- GREAT WALL OF CHINA -->
+                <article>
+                    <header>
+                        <h2>Great Wall of China</h2>
+                    </header>
+                    <div class="grid-landmark block">
+                        <div class="grid-landmark-logo">
+                            <img src="images/wallofchina.jpg" alt="Great Wall of China">
+                        </div>
+                        <div class="grid-landmark-content">
+
+                            <!-- Landmark details-->
+                            <div class="landmark-block">
+                            <button class="btn-landmark">Overview</button>
+                            <div class="landmark-info">
+                            <p>The Great Wall of China stretches over 13,000 miles across northern China. Originally constructed to defend Chinese states against invasions, it is now a symbol of China’s rich history and enduring spirit.</p>
+                            </div>
+                            </div>
+
+                            <!-- Landamrk Purpose -->
+                            <div class="landmark-block">
+                            <button class="btn-landmark">Historical Purpose</button>
+                            <div class="landmark-info">
+                                <p>Built to protect against nomadic invasions, the Wall served as both a military defense line and a means of border control. Watchtowers and barracks were strategically placed for surveillance and troop movement.</p>
+                            </div>
+                            </div>
+
+                            <!-- Landmark Origin -->
+                            <div class="landmark-block">
+                            <button class="btn-landmark">Origin</button>
+                            <div class="landmark-info">
+                                <p>Construction began as early as the 7th century BC during the Warring States period and continued through several dynasties, most notably the Ming Dynasty, which built much of what remains today.</p>
+                            </div>
+                            </div>
+                            
+                            <!-- Landmark Fun facts -->
+                            <div class="landmark-block">
+                            <button class="btn-landmark">Fun Fact!</button>
+                            <div class="landmark-info">
+                                <p>Although it's often claimed to be visible from space, the Great Wall is actually difficult to see without aid due to its narrow width and natural color blending into the landscape.</p>
+                            </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    </article>
+
+                <!-- TAJ MAHAL -->
+                <article>
+                    <header>
+                        <h2>Taj Mahal</h2>
+                    </header>
+                    <div class="grid-landmark block">
+                        <div class="grid-landmark-logo">
+                            <img src="images/tajmahal.jpg" alt="Taj Mahal">
+                        </div>
+                        <div class="grid-landmark-content">
+                            <!-- Landmark details-->
+                            <div class="landmark-block">
+                            <button class="btn-landmark">Overview</button>
+                            <div class="landmark-info">
+                            <p>The Taj Mahal is an ivory-white marble mausoleum on the southern bank of the Yamuna River in Agra, India.<br>
+                                Built in 1632, it is considered one of the world's most beautiful buildings and a UNESCO World Heritage Site. The monument is the finest example of Mughal architecture that combines Islamic, Persian, Ottoman Turkish, and Indian architectural styles.</p>
+                            </div>
+                            </div>
+
+                            <!-- Landamrk Purpose -->
+                            <div class="landmark-block">
+                            <button class="btn-landmark">Historical Purpose</button>
+                            <div class="landmark-info">
+                                <p>The Taj Mahal was commissioned by Mughal Emperor Shah Jahan to be built as a mausoleum for his beloved wife, Mumtaz Mahal, who died giving birth in 1631. It was to be a permanent tribute to their love and was to be the emperor's tribute to his <i>Chosen One of the Palace</i>. The monument was designed to be a replica of paradise on earth.</p>
+                            </div>
+                            </div>
+
+                            <!-- Landmark Origin -->
+                            <div class="landmark-block">
+                            <button class="btn-landmark">Origin</button>
+                            <div class="landmark-info">
+                                <p>Its construction began in 1632 under the oversight of master builder Ustad Ahmad Lahauri. Over 20,000 workers from India, Persia, Europe, and the Ottoman Empire, along with 1,000 elephants, worked on its construction. The term "Taj Mahal" is of Persian and Arabic origin, and it translates to crown palace. It took 22 years to finish, and its construction was completed in 1653.</p>
+                            </div>
+                            </div>
+                            
+                            <!-- Landmark Fun facts -->
+                            <div class="landmark-block">
+                            <button class="btn-landmark">Fun Fact!</button>
+                            <div class="landmark-info">
+                                <p>The Taj Mahal appears to change color during the day. It looks pinkish in the morning, milky white at dusk, and golden under the moonlight. This is due to the effect of the translucent white marble that reflects the light around it.</p>
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+                    </article>
+
+                <!-- MACHU PICCHU -->
+                <article>
+                    <header>
+                        <h2>Machu Picchu</h2>
+                    </header>
+                    <div class="grid-landmark block">
+                        <div class="grid-landmark-logo">
+                            <img src="images/machupicchu.jpg" alt="Machu Picchu">
+                        </div>
+                        <div class="grid-landmark-content">
+                            <!-- Landmark details-->
+                            <div class="landmark-block">
+                            <button class="btn-landmark">Overview</button>
+                            <div class="landmark-info">
+                            <p>Machu Picchu is an ancient Incan citadel situated on a mountain ridge above the Urubamba Valley in the Andes Mountains of Peru, at the height of approximately 2430 meters above sea level. Nicknamed the Lost City of the Incas, this architectural marvel is made up of more than 150 buildings ranging from baths and houses to temples and sanctuaries. It is one of the finest examples of Incan architecture and urban planning.</p>
+                            </div>
+                            </div>
+
+                            <!-- Landamrk Purpose -->
+                            <div class="landmark-block">
+                            <button class="btn-landmark">Historical Purpose</button>
+                            <div class="landmark-info">
+                                <p>Most archaeologists believe that Machu Picchu was built as an imperial estate for the Inca emperor Pachacuti around 1450 CE. It was an agricultural as well as ceremonial center with terracing for farming, residential quarters, and religious shrines. The building was situated to be a fortress in addition to a ceremonial center for Incan elite.</p>
+                            </div>
+                            </div>
+
+                            <!-- Landmark Origin -->
+                            <div class="landmark-block">
+                            <button class="btn-landmark">Origin</button>
+                            <div class="landmark-info">
+                                <p>Built during the reign of Inca emperor Pachacuti (1438-1472), Machu Picchu was constructed using the traditional Incan technique of dry-stone walling. The site was abandoned around 1572 during the Spanish conquest and remained unknown to the world until 1911, when American historian Hiram Bingham brought it to the world's attention.</p>
+                            </div>
+                            </div>
+                            
+                            <!-- Landmark Fun facts -->
+                            <div class="landmark-block">
+                            <button class="btn-landmark">Fun Fact!</button>
+                            <div class="landmark-info">
+                                <p>The stones at Machu Picchu were cut so precisely that you can't insert a knife blade between them, and no mortar was used! These structures have withstood centuries of earthquakes due to this ingenious Incan building technique.</p>
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+                    </article>
+
+                <!-- COLOSSEUM -->
+                <article>
+                    <header>
+                        <h2>Colosseum</h2>
+                    </header>
+                    <div class="grid-landmark block">
+                        <div class="grid-landmark-logo">
+                            <img src="images/colosseum.jpg" alt="Colosseum">
+                        </div>
+                        <div class="grid-landmark-content">
+                        <!-- Landmark details-->
+                            <div class="landmark-block">
+                            <button class="btn-landmark">Overview</button>
+                            <div class="landmark-info">
+                            <p>The Colosseum, also known as the Flavian Amphitheatre, is a Roman ancient amphitheater in the center of Rome, Italy. Built between 70-80 CE, it is the largest amphitheater ever built, holding 50,000-80,000 spectators. This iconic building is the pinnacle of Roman architecture and engineering, with an advanced system of underground tunnels called the hypogeum.</p>
+                            </div>
+                            </div>
+
+                            <!-- Landamrk Purpose -->
+                            <div class="landmark-block">
+                            <button class="btn-landmark">Historical Purpose</button>
+                            <div class="landmark-info">
+                                <p>The Colosseum was built to host gladiatorial combat, animal hunts, public spectacles, and mock naval battles for the entertainment of the Roman people. It was a representation of imperial power and was also used for other public entertainments like dramas based on Classical mythology. The arena could even be flooded for re-enactments of sea battles called naumachiae.</p>
+                            </div>
+                            </div>
+
+                            <!-- Landmark Origin -->
+                            <div class="landmark-block">
+                            <button class="btn-landmark">Origin</button>
+                            <div class="landmark-info">
+                                <p>Construction began in 70-72 CE under the reign of Emperor Vespasianand and was completed under his son Emperor Titus in 80 CE. Built primarily of travertine limestone, tuff (volcanic rock), and brick-faced concrete, the Colosseum was part of an elaborate complex that included gladiator schools and other structures related to gladiatorial games.</p>
+                            </div>
+                            </div>
+                            
+                            <!-- Landmark Fun facts -->
+                            <div class="landmark-block">
+                            <button class="btn-landmark">Fun Fact!</button>
+                            <div class="landmark-info">
+                                <p>The Colosseum had a retractable roof system called the "velarium" made of canvas that would be pulled out to protect viewers from sun and rain. It took 1000 sailors from the Roman Navy to operate this early air conditioning system.</p>
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- PYRAMIDS OF GIZA -->
+                <article>
+                    <header>
+                        <h2>Pyramids of Giza</h2>
+                    </header>
+                    <div class="grid-landmark block">
+                        <div class="grid-landmark-logo">
+                            <img src="images/pyramids.jpg" alt="Pyramids of Giza">
+                        </div>
+                        <div class="grid-landmark-content">
+                            <!-- Landmark details-->
+                            <div class="landmark-block">
+                            <button class="btn-landmark">Overview</button>
+                            <div class="landmark-info">
+                            <p>The Pyramids of Giza are a pyramidal complex of ancient Egypt located on the Giza plateau, approximately 13 km southwest of Cairo. The complex houses three main pyramids - the Great Pyramid of Khufu, the Pyramid of Khafre, and the Pyramid of Menkaure - and the renowned Great Sphinx. These pyramids are the only existing wonder of the Seven Great Wonders of the Ancient World.</p>
+                            </div>
+                            </div>
+
+                            <!-- Landamrk Purpose -->
+                            <div class="landmark-block">
+                            <button class="btn-landmark">Historical Purpose</button>
+                            <div class="landmark-info">
+                                <p>Built as monumental tombs for Egyptian pharaohs during the Fourth Dynasty of the Old Kingdom, the pyramids were designed to ensure the pharaohs' easy travel to the afterlife. All of the pyramids included burial chambers and passageways and were part of a mortuary complex that included smaller pyramids for queens, mastaba tombs for nobles, and causeways to valley temples.</p>
+                            </div>
+                            </div>
+
+                            <!-- Landmark Origin -->
+                            <div class="landmark-block">
+                            <button class="btn-landmark">Origin</button>
+                            <div class="landmark-info">
+                                <p>Constructed betweem c. 2600-2500 BCE during the Fourth Dynasty, the pyramids were built for pharaohs Khufu, Khafre, and Menkaure. The Great Pyramid of Khufu was 146.5 meters tall and the world's tallest man-made structure for over 3,800 years. The pyramids were built with millions of limestone blocks weighing 2-15 tons each.</p>
+                            </div>
+                            </div>
+                            
+                            <!-- Landmark Fun facts -->
+                            <div class="landmark-block">
+                            <button class="btn-landmark">Fun Fact!</button>
+                            <div class="landmark-info">
+                                <p>The Great Pyramid of Giza was originally encased in smooth, white limestone casing stones that made it shine like a jewel in the desert sun. The majority of the casing stones were removed over the centuries and used to build Cairo!</p>
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+                    </article>
+
+                <!-- STATUE OF LIBERTY -->
+                <article>
+                    <header>
+                        <h2>Statue of Liberty</h2>
+                    </header>
+                    <div class="grid-landmark block">
+                        <div class="grid-landmark-logo">
+                            <img src="images/statueofliberty.jpg" alt="Statue of Liberty">
+                        </div>
+                        <div class="grid-landmark-content">
+                        <!-- Landmark details-->
+                            <div class="landmark-block">
+                            <button class="btn-landmark">Overview</button>
+                            <div class="landmark-info">
+                            <p>The Statue of Liberty is a colossal neoclassical sculpture located on Liberty Island in New York Harbor. The statue, 305 feet tall including the pedestal, depicts Libertas, the Roman goddess of freedom, bearing a torch and a tablet inscribed with the date of American independence. It has become an international symbol of freedom and democracy.</p>
+                            </div>
+                            </div>
+
+                            <!-- Landamrk Purpose -->
+                            <div class="landmark-block">
+                            <button class="btn-landmark">Historical Purpose</button>
+                            <div class="landmark-info">
+                                <p>The statue was designed as a gift from France to the United States to celebrate America's centennial and the friendship of the two nations during the American Revolution. It was intended to commemorate the ideals of liberty, democracy, and freedom from oppression, and be a symbol of hope to immigrants who came to New York Harbor.</p>
+                            </div>
+                            </div>
+
+                            <!-- Landmark Origin -->
+                            <div class="landmark-block">
+                            <button class="btn-landmark">Origin</button>
+                            <div class="landmark-info">
+                                <p>Designed by French sculptor Frédéric Auguste Bartholdi and built with the assistance of Gustave Eiffel, the statue was constructed in France between 1870-1886. The statue was disassembled, shipped to New York, and reassembled on its current site. The statue was dedicated on October 28, 1886, and was designated as a National Monument in 1924.</p>
+                            </div>
+                            </div>
+                            
+                            <!-- Landmark Fun facts -->
+                            <div class="landmark-block">
+                            <button class="btn-landmark">Fun Fact!</button>
+                            <div class="landmark-info">
+                                <p>The Statue of Liberty's famous green color is due to natural oxidation of its copper surface over time - it used to be a shiny brown! It took about 30 years for the whole oxidation process to result in the green patina we know today.</p>
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+                </article>  
+
+                <!-- SYDNEY OPERA HOUSE -->
+                <article>
+                    <header>
+                        <h2>Sydney Opera House</h2>
+                    </header>
+                        <div class="grid-landmark block">
+                            <div class="grid-landmark-logo">
+                                <img src="images/sydneyoperahouse.jpg" alt="Sydney Opera House">
+                            </div>
+                            <div class="grid-landmark-content">
+                                                    <!-- Landmark details-->
+                            <div class="landmark-block">
+                            <button class="btn-landmark">Overview</button>
+                            <div class="landmark-info">
+                            <p>The Sydney Opera House is a multi-venue performing arts centre located on Sydney Harbour in New South Wales, Australia. It is famous for its distinctive shell-like design made up of interlocking precast concrete "shells" in a series and is one of the most iconic buildings in the world and an example of 20th-century architectural excellence.</p>
+                            </div>
+                            </div>
+
+                            <!-- Landamrk Purpose -->
+                            <div class="landmark-block">
+                            <button class="btn-landmark">Historical Purpose</button>
+                            <div class="landmark-info">
+                                <p>Built as a premier venue for performing arts, the Sydney Opera House was meant to host opera, theatre, music, and dance performances. It is the residence of Opera Australia, the Sydney Theatre Company, and the Sydney Symphony Orchestra. The structure was conceived to put Sydney on the world cultural map and establish Australia as a great cultural destination.</p>
+                            </div>
+                            </div>
+
+                            <!-- Landmark Origin -->
+                            <div class="landmark-block">
+                            <button class="btn-landmark">Origin</button>
+                            <div class="landmark-info">
+                                <p>It was created by Danish architect Jørn Utzon, with work beginning in 1959 after Utzon won an international design competition. It was officially opened by Queen Elizabeth II on 20 October 1973, 14 years after work had begun. The building was beset by engineering problems caused by its innovative design, which resulted in huge cost overruns and delays.</p>
+                            </div>
+                            </div>
+                            
+                            <!-- Landmark Fun facts -->
+                            <div class="landmark-block">
+                            <button class="btn-landmark">Fun Fact!</button>
+                            <div class="landmark-info">
+                                <p>The Sydney Opera House roof is covered with over a million specially manufactured ceramic tiles from Sweden. The tiles are self-cleaning and give the building its distinctive gleaming white appearance, which changes with light and weather!</p>
+                            </div>
+                            </div>
+                            </div>
+                        </div>
+                </article>
+
+                <!-- ANGKOR WAT -->
+                <article>
+                    <header>
+                        <h2>Angkor Wat</h2>
+                    </header>
+                    <div class="grid-landmark block">
+                        <div class="grid-landmark-logo">
+                            <img src="images/angkorwat.jpg" alt="Angkor Wat">
+                        </div>
+                        <div class="grid-landmark-content">
+                        <!-- Landmark details-->
+                        <div class="landmark-block">
+                            <button class="btn-landmark">Overview</button>
+                        <div class="landmark-info">
+                            <p>Angkor Wat is a temple complex in Cambodia originally built as a Hindu temple dedicated to the god Vishnu for the Khmer Empire. It is the world's largest religious monument, covering an area of 162.6 hectares, and represents the pinnacle of Khmer architecture. The temple is renowned for its massive size, architectural harmony, and lengthy bas-reliefs.</p>
+                        </div>
+                        </div>
+
+                        <!-- Landamrk Purpose -->
+                            <div class="landmark-block">
+                            <button class="btn-landmark">Historical Purpose</button>
+                        <div class="landmark-info">
+                            <p>Angkor Wat was originally constructed as a Hindu temple dedicated to the god Vishnu. It was the state temple and capital city of the Khmer Empire. Angkor Wat became a Buddhist temple and pilgrimage site in the late 12th century. The temple was designed to depict Mount Meru, which is the dwelling of the gods in Hindu and Buddhist mythology.</p>
+                        </div>
+                        </div>
+
+                        <!-- Landmark Origin -->
+                        <div class="landmark-block">
+                            <button class="btn-landmark">Origin</button>
+                        <div class="landmark-info">
+                            <p>Built in the early 12th century (1113-1150 CE) by King Suryavarman VII of the Khmer Empire, Angkor Wat took approximately 30 years to complete. Built with sandstone blocks, the temple comprises sophisticated hydraulic engineering with canals, dikes, and reservoirs. It was relatively abandoned after the fall of the Khmer Empire until French explorers rediscovered it in the 19th century.</p>
+                        </div>
+                        </div>
+                        
+                        <!-- Landmark Fun facts -->
+                        <div class="landmark-block">
+                            <button class="btn-landmark">Fun Fact!</button>
+                        <div class="landmark-info">
+                            <p>Angkor Wat is aligned west, unlike most Khmer temples, which face east. This unusual orientation is believed to be related to its dedication to Vishnu, who is associated with the west, and suggests it was intended to be a funerary temple from the very beginning!</p>
+                        </div>
+                        </div>
+                        </div>
+                    </div>
+                    </article>
+
+                <!-- LEANING TOWER OF PISA -->
+                <article>
+                    <header>
+                        <h2>Leaning Tower of Pisa</h2>
+                    </header>
+                    <div class="grid-landmark block">
+                        <div class="grid-landmark-logo">
+                            <img src="images/leaningtower.jpg" alt="Leaning Tower of Pisa">
+                        </div>
+                        <div class="grid-landmark-content">
+                            <!-- Landmark details-->
+                            <div class="landmark-block">
+                                <button class="btn-landmark">Overview</button>
+                            <div class="landmark-info">
+                                <p>The Leaning Tower of Pisa is the free-standing bell tower (campanile) of the Cathedral of Pisa in Pisa, Italy. Famous for its almost four-degree tilt caused by unstable ground foundation, the 56-meter tall tower has become one of the most recognizable architectural icons in the world. Despite the tilt, the tower remains structurally sound and is seen by over 5 million visitors annually.</p>
+                            </div>
+                            </div>
+
+                            <!-- Landamrk Purpose -->
+                                <div class="landmark-block">
+                                <button class="btn-landmark">Historical Purpose</button>
+                            <div class="landmark-info">
+                                <p>The tower was planned to be the bell tower for the adjacent Pisa Cathedral, part of the cathedral complex in the Piazza del Duomo (Cathedral Square). Its purpose was both functional, to house the cathedral bells, and symbolic, as an expression of the wealth and power of the maritime Republic of Pisa during the Middle Ages.</p>
+                            </div>
+                            </div>
+
+                            <!-- Landmark Origin -->
+                            <div class="landmark-block">
+                                <button class="btn-landmark">Origin</button>
+                            <div class="landmark-info">
+                                <p>The building began in 1173 under architect Bonanno Pisano, but the tower began to tilt during construction due to soft clay soil on one side of the foundation. Construction was halted many times over the nearly 200 years it took while engineers attempted to correct the lean. The tower wasn't finished until 1372, and widespread stabilization efforts in the late 20th century reduced its lean from 5.5 degrees to about 3.97 degrees.</p>
+                            </div>
+                            </div>
+                            
+                            <!-- Landmark Fun facts -->
+                            <div class="landmark-block">
+                                <button class="btn-landmark">Fun Fact!</button>
+                            <div class="landmark-info">
+                                <p>Galileo Galilei is reported to have utilized the Leaning Tower of Pisa for his famous gravity experiments, in which he dropped weights of different weights from the tower to demonstrate that they would fall at the same rate regardless of their weight!</p>
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+            </section>
+
+            <!-- architectural style -->
+            <section class="page" id="page2">
+                <header>
+                <h2>Architectural Styles</h2>
+                </header>
+                    <div class="grid-container">
+
+                        <!-- gothic -->
+                        <article class="grid-item">
+                            <header>
+                                <h3>Gothic Architecture</h3>
+                            </header>
+                            <img src="images/notredamedeparis.jpg" alt="Notre-Dame Cathedral" class="active">
+                            <img src="images/colognecathedral.jpg" alt="Cologne Cathedral" style="display:none;"> 
+                            <img src="images/chartrescathedral.jpg" alt="Chartres Cathedral" style="display:none;">
+                            <!-- left and right button to go to next/prev image -->
+                            <button class="btn-prev">Previous</button>
+                            <button class="btn-next">Next</button>
+                            <div class="style-content">
+                                <p>Characterized by pointed arches, ribbed vaults, and flying buttresses. Common in cathedrals and churches from the 12th-16th centuries.</p>
+                                <p><b>Examples:</b> Notre-Dame de Paris, Cologne Cathedral, Chartres Cathedral</p>
+                            </div>
+                        </article>
+
+                        <!-- baroque -->
+                        <article class="grid-item">
+                            <header>
+                                <h3>Baroque Architecture</h3>
+                            </header>
+                            <img src="images/versaillespalace.jpg" alt="The Palace of Versailles" class="active">
+                            <img src="images/stpaulcathedral.jpg" alt="St Paul's Cathedral" style="display:none;"> 
+                            <img src="images/wallensteinpalace.jpg" alt="Wallenstein Palace" style="display:none;">
+                            <!-- left and right button to go to next/prev image -->
+                            <button class="btn-prev">Previous</button>
+                            <button class="btn-next">Next</button>
+                            <div class="style-content">
+                                <p>Dramatic, bold, and theatrical style with curved forms, elaborate ornamentation, and grand scale. Flourished in 17th-18th century Europe.</p>
+                                <p><b>Examples:</b> The Palace of Versailles,  St Paul's Cathedral, Wallenstein Palace </p>
+                            </div>
+                        </article>
+
+                        <!-- neoclassical -->
+                        <article class="grid-item">
+                            <header>
+                                <h3>Neoclassical Architecture</h3>
+                            </header>
+                            <img src="images/whitehouse.jpg" alt="The White House" class="active">
+                            <img src="images/chiswickhouse.jpg" alt="The Chiswick House" style="display:none;"> 
+                            <img src="images/teatroallascala.jpg" alt="Teatro alla Scala" style="display:none;">
+                            <!-- left and right button to go to next/prev image -->
+                            <button class="btn-prev">Previous</button>
+                            <button class="btn-next">Next</button>
+                            <div class="style-content">
+                                <p>Inspired by classical Greek and Roman architecture, featuring columns, symmetry, and simple geometric forms. Popular in 18th-19th centuries.</p>
+                                <p><b>Examples:</b> White House, Chiswick House, Teatro alla Scala </p>
+                            </div>
+                        </article>
+
+                        <!-- modernist -->
+                        <article class="grid-item">
+                            <header>
+                                <h3>Modernist Architecture</h3>
+                            </header>
+                            <img src="images/sydneyoperahouse.jpg" alt="Sydney Opera House" class="active">
+                            <img src="images/villasavoye.jpg" alt="Villa Sayore" style="display:none;"> 
+                            <img src="images/fallingwater.jpg" alt="Falling Water" style="display:none;">
+                            <!-- left and right button to go to next/prev image -->
+                            <button class="btn-prev">Previous</button>
+                            <button class="btn-next">Next</button>
+                            <div class="style-content">
+                                <p>Emphasizes function over form, with clean lines, minimal ornamentation, and use of modern materials like steel and glass. 20th century movement.</p>
+                                <p><b>Examples:</b> Sydney Opera House, Villa Savoye, Fallingwater </p>
+                            </div>
+                        </article>
+
+                        <!-- islamic -->
+                        <article class="grid-item">
+                            <header>
+                                <h3>Islamic Architecture</h3>
+                            </header>
+                            <img src="images/tajmahal.jpg" alt="Taj Mahal" class="active">
+                            <img src="images/domeoftherock.jpg" alt="Dome of the Rock" style="display:none;"> 
+                            <img src="images/hagiasophia.jpg" alt="Hagia Sophia" style="display:none;">
+                            <!-- left and right button to go to next/prev image -->
+                            <button class="btn-prev">Previous</button>
+                            <button class="btn-next">Next</button>
+                            <div class="style-content">
+                                <p>Features geometric patterns, calligraphy, domes, and courtyards. Developed in Islamic regions from the 7th century onward.</p>
+                                <p><b>Examples:</b>Taj Mahal, Dome of the Rock, Hagia Sophia</p>
+                            </div>
+                        </article>
+
+                        <!-- renaissance -->
+                        <article class="grid-item">
+                            <header>
+                                <h3>Renaissance Architecture</h3>
+                            </header>
+                            <img src="images/stpeterbasilica.jpg" alt="St. Peter's Basilica" class="active">
+                            <img src="images/palazzo.jpg" alt="Palazzo Rucellai" style="display:none;"> 
+                            <img src="images/chateaudechambord.jpg" alt=" Château de Chambord" style="display:none;">
+                            <!-- left and right button to go to next/prev image -->
+                            <button class="btn-prev">Previous</button>
+                            <button class="btn-next">Next</button>
+                            <div class="style-content">
+                                <p>Revival of classical forms with symmetry, proportion, and geometry. Developed in 15th century Italy.</p>
+                                <p><b>Examples:</b>St. Peter's Basilica, Palazzo Rucellai, Château de Chambord</p>
+                            </div>
+                        </article>
+
+                        <!-- artdeco-->
+                        <article class="grid-item">
+                            <header>
+                                <h3>Art Deco Architecture</h3>
+                            </header>
+                            <img src="images/empirestatebuilding.jpg" alt="Empire State Building" class="active">
+                            <img src="images/chryslerbuilding.jpg" alt="Chrysler Building" style="display:none;"> 
+                            <img src="images/gulftower.jpg" alt="Gulf Tower" style="display:none;">
+                            <!-- left and right button to go to next/prev image -->
+                            <button class="btn-prev">Previous</button>
+                            <button class="btn-next">Next</button>
+                            <div class="style-content">
+                                <p>Bold geometric forms, rich colors, and lavish ornamentation. Popular in the 1920s-1930s.</p>
+                                <p><b>Examples:</b> Empire State Building, Chrysler Building, Gulf Tower</p>
+                            </div>
+                        </article>
+
+                        <!-- romanesque -->
+                        <article class="grid-item">
+                            <header>
+                                <h3>Romanesque Architecture</h3>
+                            </header>
+                            <img src="images/santiagodecompostela.jpg" alt="Santiago de Compostela Cathedral" class="active">
+                            <img src="images/autuncathedral.jpg" alt="Autun Cathedral" style="display:none;"> 
+                            <img src="images/monrealecathedral.jpg" alt="Monreale Cathedral" style="display:none;">
+                            <!-- left and right button to go to next/prev image -->
+                            <button class="btn-prev">Previous</button>
+                            <button class="btn-next">Next</button>
+                            <div class="style-content">
+                                <p>Characterized by semi-circular arches, thick walls, and sturdy pillars. Common in 10th-12th century Europe.</p>
+                                <p><b>Examples:</b> Santiago de Compostela Cathedral, Autun Cathedral, Monreale Cathedral</p>
+                            </div>
+                        </article>
+
+                        <!-- brutalist -->
+                        <article class="grid-item">
+                            <header>
+                                <h3>Brutalist Architecture</h3>
+                            </header>
+                            <img src="images/bostoncityhall.jpg" alt="Boston City Hall" class="active">
+                            <img src="images/barbicanestate.jpg" alt="Barbican Estate" style="display:none;"> 
+                            <img src="images/unitedhabitation.jpg" alt="Unité d'Habitation" style="display:none;">
+                            <!-- left and right button to go to next/prev image -->
+                            <button class="btn-prev">Previous</button>
+                            <button class="btn-next">Next</button>
+                            <div class="style-content">
+                                <p>Uses raw concrete, monolithic forms, and utilitarian design. Mid-20th century movement.</p>
+                                <p><b>Examples:</b> Boston City Hall, Barbican Estate, Unité d'Habitation</p>
+                            </div>
+                        </article>
+                </div>
+            </section>
+            
+            <!-- landmarks by continent -->
+            <section class="page" id="page3">
+                <header>
+                <h2>Landmarks by Continent</h2>
+                </header>
+                
+                <p>Click on a continent to view its top 5 iconic landmarks!</p>
+
+                <div id="map-container">
+                <img src="images/northamerica.png" alt="North America" class="continent-map" id="northAmerica">
+                <img src="images/southamerica.png" alt="South America" class="continent-map" id="southAmerica">
+                <img src="images/europe.png" alt="Europe" class="continent-map" id="europe">
+                <img src="images/asia.png" alt="Asia" class="continent-map" id="asia">
+                <img src="images/africa.png" alt="Africa" class="continent-map" id="africa">
+                <img src="images/australia.png" alt="Australia" class="continent-map" id="australia">
+                </div>
+                
+                <div id="landmark-gallery" class="flex-list" style="display: none;"></div>
+
+
+                    <!-- minigame -->
+                <article>
+                    <header>
+                        <h2>Minigame</h2>
+                    </header>
+                    <div id="game-container">
+                        <div id="game-info">
+                            <p id="question"></p>
+                            <p id="lives">Lives: 3</p>
+                            <p id="message"></p>
+                        </div>
+
+                        <!-- area -->
+                        <div id="maze-area">
+                            <div id="player">P</div>
+                            <div class="landmark" id="landmark1"><img src="images/eiffeltower.jpg" alt="Eiffel Tower"></div>
+                            <div class="landmark" id="landmark2"><img src="images/angkorwat.jpg" alt="Angkor Wat"></div>
+                            <div class="landmark" id="landmark3"><img src="images/machupicchu.jpg" alt="Machu Picchu"></div>
+                            <div class="landmark" id="landmark4"><img src="images/wallofchina.jpg" alt="Great Wall of China"></div>
+                            <div class="landmark" id="landmark5"><img src="images/tajmahal.jpg" alt="Taj Mahal"></div>
+                        </div>
+
+                        <!-- buttons -->
+                        <div id="controls">
+                            <button id="upBtn">Up</button>
+                            <button id="downBtn">Down</button>
+                            <button id="leftBtn">Left</button>
+                            <button id="rightBtn">Right</button>
+                        </div>
+                        <p id="game-intro">Click on the start button to play a short minigame that test your knowledge about the origins and historical purposes of famous world landmarks!</p>
+                        <button id="resetBtn">Reset Game</button>
+                        <button id="startBtn">Start Game</button>
+
+                    </div>
+                </article>
+            </section>
+
+            <!-- cultural significance -->
+            <section class="page" id="page4">
+                <header>
+                <h2>Cultural Significance</h2>
+                </header>
+                <div class="cultural-container">
+                <!-- landmark img list -->
+                <div class="landmark-scroll-container">
+                    <button class="scroll-btn up-btn">▲</button>
+                    <div class="landmark-scroll" id="landmarkScroll">
+                        <img src="images/eiffeltower.jpg" alt="Eiffel Tower" class="landmark-thumbnail" data-id="desc-eiffel">
+                        <img src="images/wallofchina.jpg" alt="Great Wall" class="landmark-thumbnail" data-id="desc-gwoc">
+                        <img src="images/tajmahal.jpg" alt="Taj Mahal" class="landmark-thumbnail" data-id="desc-tajmahal">
+                        <img src="images/machupicchu.jpg" alt="Machu Picchu" class="landmark-thumbnail" data-id="desc-machupicchu">
+                        <img src="images/colosseum.jpg" alt="Colosseum" class="landmark-thumbnail" data-id="desc-colosseum">
+                        <img src="images/pyramids.jpg" alt="Pyramids" class="landmark-thumbnail" data-id="desc-pyramids">
+                        <img src="images/statueofliberty.jpg" alt="Statue of Liberty" class="landmark-thumbnail" data-id="desc-liberty">
+                        <img src="images/sydneyoperahouse.jpg" alt="Sydney Opera House" class="landmark-thumbnail" data-id="desc-sydney">
+                        <img src="images/angkorwat.jpg" alt="Angkor Wat" class="landmark-thumbnail" data-id="desc-angkor">
+                        <img src="images/leaningtower.jpg" alt="Leaning Tower of Pisa" class="landmark-thumbnail" data-id="desc-pisa">
+                    </div>
+                    <button class="scroll-btn down-btn">▼</button>
+                </div>
+
+                    <!-- description box -->
+                    <div class="landmark-desc">
+                        <div class="desc-box" id="desc-eiffel">
+                        <h3 id="landmark-title">Eiffel Tower</h3>
+                        <p>
+                        The Eiffel Tower is not just a work of architectural genius but an integral part of French culture.<br>
+                        As one of the most trafficked monuments in the world with nearly <b>7 million visitors per year</b>, it is essential to France's tourism industry and Paris's international prestige as the <i>City of Light</i>.<br><br>
+                        In national culture, the Eiffel Tower takes center stage during major national events, including Bastille Day (July 14th), France's National Day. Every year the tower is the backdrop for an impressive fireworks show and concert that is witnessed live by thousands in attendance as well as through live broadcasts.<br><br>
+                        It is culturally a platform for artistic light displays, commemorations, and global solidarity campaigns. For instance, it has been lit in different colors to honor international causes or pay tribute in the wake of global tragedies. It has also been featured in countless movies, books, and art works, usually representing love, freedom, and the indomitable spirit of Paris.<br><br>
+                        Whether it is worshipped by locals as a cherished symbol or visited by tourists as a bucket-list sight, the Eiffel Tower is an icon of culture as a symbol of Parisian refinement, national identity, and world unity.</p>
+                        </div>
+
+
+                        <div class="desc-box" id="desc-gwoc" style="display: none;">
+                        <h3>Great Wall of China</h3>
+                        <p>The Great Wall of China stands as the ultimate symbol of Chinese resilience, determination, and national unity. Stretching over <b>13,000 miles</b>, it represents the collective effort of millions of workers across multiple dynasties.<br><br>
+                        Culturally, the Wall embodies the Chinese philosophy of perseverance and protection of homeland. It features prominently in Chinese literature, poetry, and folk tales as a symbol of strength against adversity. The saying <i>"One who fails to reach the Great Wall is not a hero"</i> reflects its significance in Chinese national consciousness.<br><br>
+                        During major Chinese festivals like National Day (October 1st), the Wall becomes a focal point for patriotic celebrations. It attracts over <b>10 million visitors annually</b>, making it one of China's most important tourist destinations and a source of national pride.<br><br>
+                        The Wall has transcended its military origins to become a global symbol of human achievement and determination. It represents China's rich history and continues to inspire modern Chinese identity, featuring on currency, in Olympic ceremonies, and as a backdrop for significant cultural events.<br><br>
+                        For locals and visitors alike, walking the Wall is considered a spiritual journey through Chinese history, connecting the present with ancient traditions and the sacrifices of countless generations.</p>
+                        </div>
+
+                        <div class="desc-box" id="desc-tajmahal" style="display: none;">
+                        <h3>Taj Mahal</h3>
+                        <p>The Taj Mahal transcends its role as a mausoleum to become the ultimate symbol of eternal love and Mughal architectural excellence. Known as the <i>"Crown of Palaces"</i>, it attracts over <b>6 million visitors annually</b> and serves as India's most iconic cultural ambassador.<br><br>
+                        In Indian culture, the Taj Mahal represents the pinnacle of romantic devotion, inspiring countless love stories, poems, and artistic works. It has become synonymous with India's rich Mughal heritage and the harmonious blend of Islamic, Persian, and Indian architectural traditions.<br><br>
+                        The monument plays a central role in Indian tourism and economy, contributing significantly to Agra's prosperity. During full moon nights, special viewing sessions allow visitors to witness the marble's ethereal glow, creating an almost mystical experience that connects visitors to the love story of Shah Jahan and Mumtaz Mahal.<br><br>
+                        Culturally, the Taj Mahal appears on Indian currency, in Bollywood films, and serves as a backdrop for diplomatic events and cultural celebrations. Its changing colors throughout the day - pink at dawn, white at noon, and golden at sunset - have inspired countless artists and photographers.<br><br>
+                        For Indians, the Taj Mahal represents national pride and cultural achievement, while for global visitors, it embodies the timeless power of love and the artistic heights of human civilization.</p>
+                        </div>
+
+                        <div class="desc-box" id="desc-machupicchu" style="display: none;">
+                        <h3>Machu Picchu</h3>
+                        <p>Machu Picchu, the <i>"Lost City of the Incas"</i>, serves as Peru's most treasured cultural symbol and a testament to indigenous Andean civilization. This ancient citadel represents the sophisticated engineering and spiritual beliefs of the Inca Empire.<br><br>
+                        For modern Peru, Machu Picchu is the cornerstone of national identity and tourism, attracting over <b>1.5 million visitors annually</b> and generating crucial revenue for local communities. The site has transformed the economy of the Cusco region, providing livelihoods for thousands of guides, porters, and artisans.<br><br>
+                        Culturally, the site maintains deep spiritual significance for indigenous Quechua people, who still perform traditional ceremonies and maintain ancestral connections to the land. During the winter solstice (Inti Raymi), special celebrations honor the sun god, connecting modern Peru with its ancient roots.<br><br>
+                        The famous Inca Trail pilgrimage has become a rite of passage for adventurers worldwide, representing personal transformation and connection with nature. The journey embodies principles of respect for Pachamama (Mother Earth) and sustainable tourism practices.<br><br>
+                        Internationally, Machu Picchu symbolizes the resilience of indigenous cultures and the importance of preserving archaeological heritage. It serves as Peru's cultural ambassador, featured in films, documentaries, and artistic works that celebrate the ingenuity of pre-Columbian civilizations.</p>
+                        </div>
+
+                        <div class="desc-box" id="desc-colosseum" style="display: none;">
+                        <h3>Colosseum</h3>
+                        <p>The Colosseum stands as Rome's most powerful symbol of imperial grandeur and the enduring legacy of Roman civilization. This ancient amphitheater embodies both the glory and brutality of the Roman Empire, serving as a reminder of humanity's complex history.<br><br>
+                        In Italian culture, the Colosseum represents national heritage and the continuity of Roman greatness. It appears on the Italian 5 cent euro coin and serves as the backdrop for numerous cultural events and celebrations. The saying <i>"While the Colosseum stands, Rome stands; when the Colosseum falls, Rome will fall"</i> reflects its significance to Roman identity.<br><br>
+                        The monument attracts over <b>5 million visitors annually</b>, making it Italy's most visited tourist attraction and a crucial economic driver for Rome. Its image is synonymous with Italy itself, appearing in countless films, advertisements, and artistic works.<br><br>
+                        Culturally, the Colosseum has evolved from a symbol of entertainment and power to one of human rights and dignity. The Catholic Church now holds the "Way of the Cross" procession here each Good Friday, and it has become a symbol against capital punishment - it is illuminated whenever a death sentence is commuted worldwide.<br><br>
+                        For Romans and Italians, the Colosseum represents the eternal nature of their city and culture, while for global visitors, it embodies the grandeur of ancient civilizations and the lessons of history about power, entertainment, and human nature.</p>
+                        </div>
+
+                        <div class="desc-box" id="desc-pyramids" style="display: none;">
+                        <h3>Pyramids of Giza</h3>
+                        <p>The Pyramids of Giza stand as humanity's most enduring monuments to ancient Egyptian civilization and the only surviving Wonder of the Ancient World. These colossal structures represent the pinnacle of pharaonic power and ancient engineering prowess.<br><br>
+                        In Egyptian culture, the pyramids embody national pride and the continuity of Egyptian civilization spanning over 4,500 years. They appear on Egyptian currency and serve as the ultimate symbol of Egypt's ancient heritage and cultural sophistication.<br><br>
+                        The pyramids attract over <b>14 million visitors annually</b>, making them Egypt's most important tourist attraction and a vital source of national revenue. The sound and light shows held at the pyramids create magical experiences that connect visitors with ancient Egyptian beliefs about the afterlife and divine kingship.<br><br>
+                        Culturally, the pyramids have inspired countless theories, artistic works, and scientific studies. They represent the intersection of astronomy, mathematics, and spirituality in ancient Egyptian society. The precise alignment with celestial bodies reflects the Egyptians' sophisticated understanding of the cosmos.<br><br>
+                        For Egyptians, the pyramids symbolize the eternal nature of their civilization and cultural achievements, while for global visitors, they represent humanity's earliest monumental architecture and the mysterious wisdom of ancient civilizations. They continue to challenge our understanding of ancient capabilities and inspire wonder about human potential.</p>
+                        </div>
+
+                        <div class="desc-box" id="desc-liberty" style="display: none;">
+                        <h3>Statue of Liberty</h3>
+                        <p>The Statue of Liberty stands as America's most powerful symbol of freedom, democracy, and opportunity. For over 130 years, Lady Liberty has welcomed millions of immigrants to New York Harbor, embodying the American dream and the nation's founding principles.<br><br>
+                        In American culture, the statue represents the ideals of liberty, justice, and hope. It has become synonymous with American values and appears in countless patriotic displays, especially during Independence Day celebrations on July 4th. The statue's torch symbolizes enlightenment and the guiding light of freedom.<br><br>
+                        The monument attracts over <b>4 million visitors annually</b> and serves as a pilgrimage site for those seeking to understand American history and values. Ellis Island, nearby, complements the statue's message by telling the stories of immigrant families who sought new lives in America.<br><br>
+                        Culturally, the Statue of Liberty has transcended national boundaries to become a global symbol of human rights and democracy. It has inspired liberation movements worldwide and appears in international art and media as a representation of freedom from oppression.<br><br>
+                        For Americans, the statue embodies national identity and the country's role as a beacon of hope, while for global visitors, it represents the universal human aspiration for freedom and the opportunity to build a better life. The inscription <i>"Give me your tired, your poor, your huddled masses yearning to breathe free"</i> continues to resonate with people worldwide.</p>
+                        </div>
+
+                        <div class="desc-box" id="desc-sydney" style="display: none;">
+                        <h3>Sydney Opera House</h3>
+                        <p >The Sydney Opera House stands as Australia's most recognizable cultural icon and a masterpiece of 20th-century architecture. Its distinctive shell-like design has made it synonymous with Sydney and Australia itself, representing the country's cultural sophistication and innovative spirit.<br><br>
+                        In Australian culture, the Opera House symbolizes the nation's coming of age as a major cultural destination. It hosts over <b>1,500 performances annually</b> and attracts more than 8 million visitors, making it a cornerstone of Australia's cultural life and tourism industry.<br><br>
+                        The building serves as the home of Opera Australia, the Sydney Theatre Company, and the Sydney Symphony Orchestra, establishing Sydney as a global cultural capital. During major events like New Year's Eve, the Opera House becomes the focal point of celebrations, with spectacular light displays projected onto its iconic sails.<br><br>
+                        Culturally, the Opera House has become a canvas for artistic expression and social causes. Its sails are regularly illuminated with different colors and patterns to commemorate significant events, support charitable causes, and celebrate cultural diversity.<br><br>
+                        For Australians, the Opera House represents national pride and cultural achievement, while for international visitors, it embodies Australia's unique character and commitment to the arts. The building's innovative design continues to inspire architects worldwide and serves as a symbol of human creativity and the power of visionary thinking.</p>
+                        </div>
+
+                        <div class="desc-box" id="desc-angkor" style="display: none;">
+                        <h3>Angkor Wat</h3>
+                        <p>Angkor Wat stands as Cambodia's most sacred symbol and the world's largest religious monument, representing the pinnacle of Khmer civilization and architectural achievement. This magnificent temple complex embodies the spiritual and cultural heart of Cambodia.<br><br>
+                        In Cambodian culture, Angkor Wat is the ultimate source of national pride and identity. It appears on the national flag and currency, symbolizing the country's glorious past and cultural continuity. The temple represents the resilience of Cambodian civilization despite centuries of conflict and hardship.<br><br>
+                        The site attracts over <b>2 million visitors annually</b>, making it Cambodia's most important tourist destination and economic driver. Local communities depend on tourism revenue, with thousands working as guides, artisans, and service providers in the Siem Reap region.<br><br>
+                        Spiritually, Angkor Wat maintains its religious significance as both a Hindu and Buddhist site. Monks regularly conduct ceremonies, and locals continue to worship at various shrines within the complex. The temple's alignment with celestial bodies reflects the ancient Khmer understanding of cosmic harmony.<br><br>
+                        Culturally, Angkor Wat has inspired Cambodian art, literature, and performing arts for centuries. Traditional Apsara dance performances recreate the celestial dancers carved on the temple walls, keeping ancient cultural traditions alive. For Cambodians, Angkor Wat represents their greatest cultural achievement and a connection to their ancestors' spiritual wisdom.</p>
+                        </div>
+
+                        <div class="desc-box" id="desc-pisa" style="display: none;">
+                        <h3>Leaning Tower of Pisa</h3>
+                        <p>The Leaning Tower of Pisa has become one of the world's most beloved architectural oddities, transforming from an engineering mistake into a symbol of Italian charm and human perseverance. Its famous tilt has made it instantly recognizable worldwide.<br><br>
+                        In Italian culture, the tower represents the medieval maritime power of the Republic of Pisa and the city's historical importance. Despite its structural flaw, locals take pride in their unique landmark, which has become synonymous with Pisa and Italian ingenuity in finding solutions to impossible problems.<br><br>
+                        The tower attracts over <b>5 million visitors annually</b>, making it one of Italy's most visited monuments. The famous "holding up the tower" photographs have become a global tourist tradition, creating countless memorable moments and social media content.<br><br>
+                        Culturally, the tower has inspired countless artistic works, scientific studies, and popular culture references. Its connection to Galileo Galilei's legendary gravity experiments (though historically disputed) has made it a symbol of scientific inquiry and discovery.<br><br>
+                        The tower's restoration efforts, which successfully reduced its tilt and ensured its stability, demonstrate Italian expertise in heritage conservation. For Italians, the tower represents the ability to find beauty in imperfection, while for global visitors, it embodies the unexpected wonders that can emerge from human error and the importance of preserving our architectural heritage.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- quiz section -->
+                <article>
+                    <header>
+                        <h2>Quiz Section</h2>
+                    </header>
+                    <div class="quiz-container">
+                        <div id="quiz-question" style="display: none;"></div>
+                        <div id="quiz-content" style="display: none;">
+                            <div class="quiz-options">
+                                <div class="option-item">
+                                    <label><input type="radio" name="quiz" value="0"> Option A</label>
+                                </div>
+                                <div class="option-item">
+                                    <label><input type="radio" name="quiz" value="1"> Option B</label>
+                                </div>
+                                <div class="option-item">
+                                    <label><input type="radio" name="quiz" value="2"> Option C</label>
+                                </div>
+                                <div class="option-item">
+                                    <label><input type="radio" name="quiz" value="3"> Option D</label>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="quiz-buttons" style="display: none;">
+                            <button id="quizNextBtn">Next</button>
+                            <button id="quizSubmitBtn" style="display: none;">Submit Quiz</button>
+                        </div>
+                        <div class="quizScore" id="quiz-score-display" style="display: none;"></div>
+                        <p id="quiz-intro">Are you ready to test your knowledge?<br>Click on the start button to see how well you know your stuff!</p>
+                        <button id="startQuizBtn">Start Quiz</button>
+                        <button id="quizRestartBtn" style="display: none;">Restart Quiz</button>
+                    </div>
+                </article>
+            </section>
+
+            <!-- visiting tips -->
+            <section class="page" id="page5">
+                <header>
+                <h2>Visiting Tips</h2>
+                </header>
+                <div class="tips-container">
+                    <article class="tips-card">
+                    <header><h3>Tips</h3></header>
+                    <ul>
+                        <li>Plan your visit during off-peak hours to avoid crowds.</li>
+                        <li>Check the official website for entry fees and opening hours.</li>
+                        <li>Consider guided tours for a more in-depth experience.</li>
+                        <li>Wear comfortable shoes as many landmarks require walking.</li>
+                        <li>Respect local customs and regulations while visiting.</li>
+                    </ul>
+                    </article>
+
+                    <article class="tips-card">
+                    <header><h3>Useful Links</h3></header>
+                    <ul>
+                        <li><a href="https://www.eiffeltowerparis.com/" target="_blank">Eiffel Tower Official Site</a></li>
+                        <li><a href="https://www.greatwall-of-china.com/" target="_blank">Great Wall of China Official Site</a></li>
+                        <li><a href="https://www.tajmahal.gov.in/" target="_blank">Taj Mahal Official Site</a></li>
+                        <li><a href="https://www.machupicchu.gob.pe/" target="_blank">Machu Picchu Official Site</a></li>
+                        <li><a href="https://www.colosseumrometickets.com/" target="_blank">Colosseum Official Site</a></li>
+                    </ul>
+                    </article>
+
+                    <article class="tips-card">
+                    <header><h3>Safety Tips</h3></header>
+                    <ul>
+                        <li>Stay hydrated and wear sunscreen, especially in outdoor landmarks.</li>
+                        <li>Keep your belongings secure to avoid theft.</li>
+                        <li>Follow local guidelines and regulations for a safe visit.</li>
+                    </ul>
+                    </article>
+                </div>
+
+                <article class="tips-form">
+                    <header><h2>Share Your Visiting Experience</h2></header>
+                    <div class="form-container">
+                    <input type="text" id="userName" placeholder="Your name">
+                    <select id="landmark">
+                        <option>Eiffel Tower</option>
+                        <option>Great Wall</option>
+                        <option>Taj Mahal</option>
+                    </select>
+                    <div>
+                        Rating: 
+                        <label class="rating-option">
+                            <input type="radio" name="stars" value="1">1
+                        </label>
+                        <label class="rating-option">
+                            <input type="radio" name="stars" value="2">2
+                        </label>
+                        <label class="rating-option">
+                            <input type="radio" name="stars" value="3">3
+                        </label>
+                        <label class="rating-option">
+                            <input type="radio" name="stars" value="4">4
+                        </label>
+                        <label class="rating-option">
+                            <input type="radio" name="stars" value="5">5
+                        </label>
+                    </div>
+                    <textarea id="userComment" placeholder="Your tips..."></textarea>
+                    <button id="showFeedback">Show My Feedback</button>
+                    <div id="result"></div>
+                    </div>
+                </article>
+            </section>
+        </main>
+
+        <footer>
+        <div class="sns">
+            <a href="https://facebook.com" class="icon facebook" title="Facebook" target="_blank"></a>
+            <a href="https://youtube.com" class="icon youtube" title="YouTube" target="_blank"></a>
+        </div>
+        <img id="qrCodeImg" src="images/qrcode.png" width="150" alt="QR Code">
+        <p>Made By Josline Choo<br>02_Josline_244539K</p>
+        </footer>
+    </body>
+</html>
