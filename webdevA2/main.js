@@ -196,16 +196,16 @@ function setupGallery(container) {
     if (btnPrev) {
         btnPrev.addEventListener('click', function () {
             // decrease index to go to prev img and loop to the last if its the first image
-        if (currentIndex < 0) 
-            currentIndex = images.length - 1; // go to last image
+            currentIndex = (currentIndex - 1 + images.length) % images.length;
+            showImage(currentIndex);
         });
     }
 
     if (btnNext) {
         btnNext.addEventListener('click', function () {
             // increase index to go to next img and loop to the first if its the last image
-            if (currentIndex >= images.length) 
-                currentIndex = 0; // go back to first image
+            currentIndex = (currentIndex + 1) % images.length;
+            showImage(currentIndex);
         });
     }
 }
@@ -267,7 +267,7 @@ for (let i = 0; i < maps.length; i++) {
 function onContinentClick() {
     const continent = this.id; // get id of the continent that is clicked
 
-    if (continent == currentContinent && gallery.style.display == "flex") { // check if clicked on the same continent and it's visible then hide it if it is
+    if (continent == currentContinent && gallery.style.display == "flex") { // if clicked on the same continent agn then hide it
         gallery.style.display = "none"; // hide
         gallery.innerHTML = ""; // clear prev content
         currentContinent = null;
@@ -674,6 +674,11 @@ function updateQuizBtn(event) {
 function nextQuestion() {
     // get selected answer for the current qns
     const selectedAnswer = document.querySelector("input[name='quiz']:checked");
+    // if answer is not selected then show alert to prevent player from skipping the qns
+    if (!selectedAnswer) {
+        alert("Please select an answer.");
+        return;
+    }
 
     // stores the player answer for the qns
     playerAnswers[currentQuestionIndex] = parseInt(selectedAnswer.value);
@@ -686,6 +691,11 @@ function nextQuestion() {
 function submitQuiz() {
     // get selected answer for the current qns
     const selectedAnswer = document.querySelector("input[name='quiz']:checked");
+    // if answer is not selected then show alert to prevent player from skipping the qns  
+    if (!selectedAnswer) {
+        alert("Please select an answer.");
+        return;
+    }
 
     // stores the player answer for the final qns
     playerAnswers[currentQuestionIndex] = parseInt(selectedAnswer.value);
